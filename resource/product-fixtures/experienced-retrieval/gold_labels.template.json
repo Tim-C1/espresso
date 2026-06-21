@@ -1,0 +1,100 @@
+{
+  "labels": [
+    {
+      "sentence_id": "cp1s2",
+      "text": "Vector databases store embeddings and use nearest-neighbor retrieval to find semantically similar records.",
+      "expected_priority": "",
+      "expected_directive": "",
+      "reason": "",
+      "label_type": "",
+      "difficulty": "",
+      "tags": [],
+      "annotator": "",
+      "review_status": ""
+    },
+    {
+      "sentence_id": "cp1s3",
+      "text": "Retrieval augmented generation combines retrieved context with a language model before producing an answer.",
+      "expected_priority": "",
+      "expected_directive": "",
+      "reason": "",
+      "label_type": "",
+      "difficulty": "",
+      "tags": [],
+      "annotator": "",
+      "review_status": ""
+    },
+    {
+      "sentence_id": "cp1s4",
+      "text": "Building on indexing workflows, adaptive freshness budgets connect familiar retrieval operations to per-query update decisions.",
+      "expected_priority": "",
+      "expected_directive": "",
+      "reason": "",
+      "label_type": "",
+      "difficulty": "",
+      "tags": [],
+      "annotator": "",
+      "review_status": ""
+    },
+    {
+      "sentence_id": "cp1s5",
+      "text": "A new result shows that query-specific freshness budgets cut stale-answer errors by 31 percent without increasing median latency.",
+      "expected_priority": "",
+      "expected_directive": "",
+      "reason": "",
+      "label_type": "",
+      "difficulty": "",
+      "tags": [],
+      "annotator": "",
+      "review_status": ""
+    },
+    {
+      "sentence_id": "cp2s2",
+      "text": "The evaluation finds that confidence-triggered reindexing reduces write amplification by 42 percent on bursty workloads.",
+      "expected_priority": "",
+      "expected_directive": "",
+      "reason": "",
+      "label_type": "",
+      "difficulty": "",
+      "tags": [],
+      "annotator": "",
+      "review_status": ""
+    },
+    {
+      "sentence_id": "cp2s3",
+      "text": "For teams already monitoring drift, confidence-triggered reindexing provides a bridge from familiar alerts to selective refresh actions.",
+      "expected_priority": "",
+      "expected_directive": "",
+      "reason": "",
+      "label_type": "",
+      "difficulty": "",
+      "tags": [],
+      "annotator": "",
+      "review_status": ""
+    },
+    {
+      "sentence_id": "cp2s4",
+      "text": "The appendix repeats deployment checklists that experienced operators already use.",
+      "expected_priority": "",
+      "expected_directive": "",
+      "reason": "",
+      "label_type": "",
+      "difficulty": "",
+      "tags": [],
+      "annotator": "",
+      "review_status": ""
+    },
+    {
+      "sentence_id": "cp2s5",
+      "text": "A vendor pricing comparison lists subscription tiers without affecting the technical conclusions.",
+      "expected_priority": "",
+      "expected_directive": "",
+      "reason": "",
+      "label_type": "",
+      "difficulty": "",
+      "tags": [],
+      "annotator": "",
+      "review_status": ""
+    }
+  ]
+}

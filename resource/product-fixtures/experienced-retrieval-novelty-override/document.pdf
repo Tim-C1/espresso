@@ -1,0 +1,64 @@
+%PDF-1.4
+%1234
+1 0 obj
+<< /Type /Catalog /Pages 2 0 R >>
+endobj
+2 0 obj
+<< /Type /Pages /Kids [3 0 R 4 0 R] /Count 2 >>
+endobj
+3 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 5 0 R >> >> /Contents 6 0 R >>
+endobj
+4 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 5 0 R >> >> /Contents 7 0 R >>
+endobj
+5 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>
+endobj
+6 0 obj
+<< /Length 548 >>
+stream
+/F1 8 Tf
+72 740 Td
+(Novelty Override Failures.) Tj
+0 -42 Td
+(The previously validated configuration remains the production baseline for normal request traffic.) Tj
+0 -42 Td
+(The previously validated configuration failed when burst traffic introduced a new skewed tenant mix.) Tj
+0 -42 Td
+(The adaptive freshness budget regressed for the new archival workload and increased stale answers by 18 percent.) Tj
+0 -42 Td
+(The familiar reranking setup produced a new latency quality tradeoff, increasing recall by 6 percent but doubling tail latency.) Tj
+endstream
+endobj
+7 0 obj
+<< /Length 485 >>
+stream
+/F1 8 Tf
+72 740 Td
+(Novelty Override Conditions.) Tj
+0 -42 Td
+(Standard hybrid retrieval combines lexical and semantic candidates during routine operation.) Tj
+0 -42 Td
+(Unlike the baseline, standard hybrid retrieval under the distribution shift reduced rare-query recall by 14 percent.) Tj
+0 -42 Td
+(The adaptive freshness budget was already validated for the ordinary workload and adds no new evidence.) Tj
+0 -42 Td
+(Vendor pricing lists annual support tiers for the deployment.) Tj
+endstream
+endobj
+xref
+0 8
+0000000000 65535 f 
+0000000015 00000 n 
+0000000064 00000 n 
+0000000127 00000 n 
+0000000253 00000 n 
+0000000379 00000 n 
+0000000449 00000 n 
+0000001047 00000 n 
+trailer
+<< /Size 8 /Root 1 0 R >>
+startxref
+1582
+%%EOF

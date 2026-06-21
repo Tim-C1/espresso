@@ -1,0 +1,119 @@
+{
+  "name": "dense-real-pdf-textcontent-capture",
+  "fixtureType": "captured_pdfjs_text_content",
+  "mode": "filtered",
+  "expectedSummary": {
+    "generated": 21, "validated": 21, "invalid": 0, "eligibleAfterFilters": 19,
+    "intendedInline": 15, "inlineFallbackWithoutUsableMatch": 0,
+    "matchAttempted": 13, "candidateMatches": 12, "usableMatches": 12, "renderedInline": 10,
+    "renderedAsPageNote": 3, "leftNormal": 3, "dropped": 5
+  },
+  "pages": [
+    {
+      "pageNumber": 1,
+      "items": [
+        "Dense documents split a claim", "across several positioned spans.",
+        "The method compares reader knowledge with document claims.",
+        "Evidence quality determines whether a conclusion is trustworthy.",
+        "Familiar background can be read with less visual emphasis.",
+        "A callout connects the method to prior knowledge.",
+        "Ordinary transition text remains unchanged.",
+        "Low confidence novelty should not alter the page.",
+        "p1 filler 08", "p1 filler 09", "p1 filler 10", "p1 filler 11",
+        "p1 filler 12", "p1 filler 13", "p1 filler 14", "p1 filler 15",
+        "p1 filler 16", "p1 filler 17", "p1 filler 18", "p1 filler 19",
+        "p1 filler 20", "p1 filler 21", "p1 filler 22", "p1 filler 23",
+        "p1 filler 24", "p1 filler 25", "p1 filler 26", "p1 filler 27",
+        "p1 filler 28", "p1 filler 29"
+      ],
+      "lineTops": [0, 20, 40, 60, 80, 100, 120, 140, 160, 180, 200, 220, 240, 260, 280, 300, 320, 340, 360, 380, 400, 420, 440, 460, 480, 500, 520, 540, 560, 580]
+    },
+    {
+      "pageNumber": 2,
+      "items": [
+        "This oversized annotation", "covers six separate", "PDF text spans", "on a crowded", "diagnostic page", "and exceeds the cap.",
+        "Shared evidence supports the central claim.",
+        "The represen-", "tation survives a PDF line break.",
+        "A bridge note explains why the evidence matters.",
+        "Routine connective prose remains visually normal.",
+        "p2 filler 11", "p2 filler 12", "p2 filler 13", "p2 filler 14",
+        "p2 filler 15", "p2 filler 16", "p2 filler 17", "p2 filler 18",
+        "p2 filler 19", "p2 filler 20", "p2 filler 21", "p2 filler 22",
+        "p2 filler 23", "p2 filler 24", "p2 filler 25", "p2 filler 26",
+        "p2 filler 27", "p2 filler 28", "p2 filler 29"
+      ],
+      "lineTops": [0, 20, 40, 60, 80, 100, 120, 140, 160, 180, 200, 220, 240, 260, 280, 300, 320, 340, 360, 380, 400, 420, 440, 460, 480, 500, 520, 540, 560, 580]
+    },
+    {
+      "pageNumber": 3,
+      "items": [
+        "Repeated evidence appears in the introduction.",
+        "The discussion then evaluates competing explanations.",
+        "A robustness check removes an alternative mechanism.",
+        "The appendix repeats supporting measurements.",
+        "Later analysis shows repeated evidence", "changes the conclusion.",
+        "Known terminology receives a softer visual treatment.",
+        "A second familiar passage summarizes standard practice.",
+        "The page note links the result to the reader baseline.",
+        "Closing transition text remains normal.",
+        "Uncertain emphasis should remain below its threshold.",
+        "p3 filler 11", "p3 filler 12", "p3 filler 13", "p3 filler 14",
+        "p3 filler 15", "p3 filler 16", "p3 filler 17", "p3 filler 18",
+        "p3 filler 19", "p3 filler 20", "p3 filler 21", "p3 filler 22",
+        "p3 filler 23", "p3 filler 24", "p3 filler 25", "p3 filler 26",
+        "p3 filler 27", "p3 filler 28", "p3 filler 29"
+      ],
+      "lineTops": [0, 20, 40, 60, 80, 100, 120, 140, 160, 180, 200, 220, 240, 260, 280, 300, 320, 340, 360, 380, 400, 420, 440, 460, 480, 500, 520, 540, 560, 580]
+    }
+  ],
+  "chunks": [
+    { "id": "d-p1-multiline", "page": 1, "text": "Dense documents split a claim across several positioned spans." },
+    { "id": "d-p1-method", "page": 1, "text": "The method compares reader knowledge with document claims." },
+    { "id": "d-p1-evidence", "page": 1, "text": "Evidence quality determines whether a conclusion is trustworthy." },
+    { "id": "d-p1-familiar", "page": 1, "text": "Familiar background can be read with less visual emphasis." },
+    { "id": "d-p1-callout", "page": 1, "text": "A callout connects the method to prior knowledge." },
+    { "id": "d-p1-normal", "page": 1, "text": "Ordinary transition text remains unchanged." },
+    { "id": "d-p1-low", "page": 1, "text": "Low confidence novelty should not alter the page." },
+
+    { "id": "d-p2-density", "page": 2, "text": "This oversized annotation covers six separate PDF text spans on a crowded diagnostic page and exceeds the cap." },
+    { "id": "d-p2-overlap-win", "page": 2, "text": "Shared evidence supports the central claim." },
+    { "id": "d-p2-overlap-lose", "page": 2, "text": "Shared evidence supports the central claim." },
+    { "id": "d-p2-hyphen", "page": 2, "text": "The representation survives a PDF line break." },
+    { "id": "d-p2-callout", "page": 2, "text": "A bridge note explains why the evidence matters." },
+    { "id": "d-p2-normal", "page": 2, "text": "Routine connective prose remains visually normal." },
+    { "id": "d-p2-unmatched", "page": 2, "text": "Absent quantum telemetry never appears on this page." },
+
+    { "id": "d-p3-repeat-context", "page": 3, "text": "Later analysis shows repeated evidence changes the conclusion." },
+    { "id": "d-p3-robustness", "page": 3, "text": "A robustness check removes an alternative mechanism." },
+    { "id": "d-p3-familiar-one", "page": 3, "text": "Known terminology receives a softer visual treatment." },
+    { "id": "d-p3-familiar-two", "page": 3, "text": "A second familiar passage summarizes standard practice." },
+    { "id": "d-p3-callout", "page": 3, "text": "The page note links the result to the reader baseline." },
+    { "id": "d-p3-normal", "page": 3, "text": "Closing transition text remains normal." },
+    { "id": "d-p3-low", "page": 3, "text": "Uncertain emphasis should remain below its threshold." }
+  ],
+  "annotations": [
+    { "chunk_id": "d-p1-multiline", "source": "mock", "priority": "delta", "directive": "highlight", "confidence": 0.96 },
+    { "chunk_id": "d-p1-method", "source": "mock", "priority": "delta", "directive": "highlight", "confidence": 0.92 },
+    { "chunk_id": "d-p1-evidence", "source": "mock", "priority": "delta", "directive": "highlight", "confidence": 0.88 },
+    { "chunk_id": "d-p1-familiar", "source": "mock", "priority": "familiar", "directive": "soft_fade", "confidence": 0.9 },
+    { "chunk_id": "d-p1-callout", "source": "mock", "priority": "bridge", "directive": "callout", "confidence": 0.86 },
+    { "chunk_id": "d-p1-normal", "source": "mock", "priority": "bridge", "directive": "leave_normal", "confidence": 0.8 },
+    { "chunk_id": "d-p1-low", "source": "mock", "priority": "delta", "directive": "highlight", "confidence": 0.4 },
+
+    { "chunk_id": "d-p2-density", "source": "mock", "priority": "delta", "directive": "highlight", "confidence": 0.99 },
+    { "chunk_id": "d-p2-overlap-win", "source": "mock", "priority": "delta", "directive": "highlight", "confidence": 0.95 },
+    { "chunk_id": "d-p2-overlap-lose", "source": "mock", "priority": "delta", "directive": "highlight", "confidence": 0.84 },
+    { "chunk_id": "d-p2-hyphen", "source": "mock", "priority": "familiar", "directive": "soft_fade", "confidence": 0.91 },
+    { "chunk_id": "d-p2-callout", "source": "mock", "priority": "bridge", "directive": "callout", "confidence": 0.82 },
+    { "chunk_id": "d-p2-normal", "source": "mock", "priority": "bridge", "directive": "leave_normal", "confidence": 0.78 },
+    { "chunk_id": "d-p2-unmatched", "source": "mock", "priority": "familiar", "directive": "soft_fade", "confidence": 0.9 },
+
+    { "chunk_id": "d-p3-repeat-context", "source": "mock", "priority": "delta", "directive": "highlight", "confidence": 0.94 },
+    { "chunk_id": "d-p3-robustness", "source": "mock", "priority": "delta", "directive": "highlight", "confidence": 0.89 },
+    { "chunk_id": "d-p3-familiar-one", "source": "mock", "priority": "familiar", "directive": "soft_fade", "confidence": 0.9 },
+    { "chunk_id": "d-p3-familiar-two", "source": "mock", "priority": "familiar", "directive": "soft_fade", "confidence": 0.87 },
+    { "chunk_id": "d-p3-callout", "source": "mock", "priority": "bridge", "directive": "callout", "confidence": 0.83 },
+    { "chunk_id": "d-p3-normal", "source": "mock", "priority": "bridge", "directive": "leave_normal", "confidence": 0.8 },
+    { "chunk_id": "d-p3-low", "source": "mock", "priority": "familiar", "directive": "soft_fade", "confidence": 0.5 }
+  ]
+}

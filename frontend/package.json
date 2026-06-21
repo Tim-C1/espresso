@@ -6,10 +6,13 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
+    "build:annotation-debug": "tsc -p tsconfig.debug.json",
+    "debug:annotations": "npm run build:annotation-debug --silent && node .annotation-debug-build/src/debug/annotationCli.js",
+    "test:annotations": "npm run build:annotation-debug --silent && node .annotation-debug-build/src/debug/annotationDiagnostics.test.js",
     "preview": "vite preview"
   },
   "dependencies": {
-    "pdfjs-dist": "^4.4.168",
+    "pdfjs-dist": "4.10.38",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "vite": "^5.4.2"

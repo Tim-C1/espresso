@@ -1,0 +1,115 @@
+{
+  "schema_version": "1.0",
+  "fixture": "experienced-retrieval",
+  "baseline_source": "baseline.json",
+  "candidates": [
+    {
+      "sentence_id": "cp1s1",
+      "page": 1,
+      "candidate_kind": "short_fragment",
+      "text": "Expert Retrieval Update.",
+      "normalized_text": "Expert Retrieval Update.",
+      "length": 24,
+      "item_ranges_present": true,
+      "tags": [
+        "very_short"
+      ]
+    },
+    {
+      "sentence_id": "cp1s2",
+      "page": 1,
+      "candidate_kind": "body_sentence",
+      "text": "Vector databases store embeddings and use nearest-neighbor retrieval to find semantically similar records.",
+      "normalized_text": "Vector databases store embeddings and use nearest-neighbor retrieval to find semantically similar records.",
+      "length": 106,
+      "item_ranges_present": true,
+      "tags": []
+    },
+    {
+      "sentence_id": "cp1s3",
+      "page": 1,
+      "candidate_kind": "body_sentence",
+      "text": "Retrieval augmented generation combines retrieved context with a language model before producing an answer.",
+      "normalized_text": "Retrieval augmented generation combines retrieved context with a language model before producing an answer.",
+      "length": 107,
+      "item_ranges_present": true,
+      "tags": []
+    },
+    {
+      "sentence_id": "cp1s4",
+      "page": 1,
+      "candidate_kind": "body_sentence",
+      "text": "Building on indexing workflows, adaptive freshness budgets connect familiar retrieval operations to per-query update decisions.",
+      "normalized_text": "Building on indexing workflows, adaptive freshness budgets connect familiar retrieval operations to per-query update decisions.",
+      "length": 127,
+      "item_ranges_present": true,
+      "tags": []
+    },
+    {
+      "sentence_id": "cp1s5",
+      "page": 1,
+      "candidate_kind": "body_sentence",
+      "text": "A new result shows that query-specific freshness budgets cut stale-answer errors by 31 percent without increasing median latency.",
+      "normalized_text": "A new result shows that query-specific freshness budgets cut stale-answer errors by 31 percent without increasing median latency.",
+      "length": 129,
+      "item_ranges_present": true,
+      "tags": [
+        "contains_numeric_result"
+      ]
+    },
+    {
+      "sentence_id": "cp2s1",
+      "page": 2,
+      "candidate_kind": "short_fragment",
+      "text": "Operational Findings.",
+      "normalized_text": "Operational Findings.",
+      "length": 21,
+      "item_ranges_present": true,
+      "tags": [
+        "very_short"
+      ]
+    },
+    {
+      "sentence_id": "cp2s2",
+      "page": 2,
+      "candidate_kind": "body_sentence",
+      "text": "The evaluation finds that confidence-triggered reindexing reduces write amplification by 42 percent on bursty workloads.",
+      "normalized_text": "The evaluation finds that confidence-triggered reindexing reduces write amplification by 42 percent on bursty workloads.",
+      "length": 120,
+      "item_ranges_present": true,
+      "tags": [
+        "contains_numeric_result"
+      ]
+    },
+    {
+      "sentence_id": "cp2s3",
+      "page": 2,
+      "candidate_kind": "body_sentence",
+      "text": "For teams already monitoring drift, confidence-triggered reindexing provides a bridge from familiar alerts to selective refresh actions.",
+      "normalized_text": "For teams already monitoring drift, confidence-triggered reindexing provides a bridge from familiar alerts to selective refresh actions.",
+      "length": 136,
+      "item_ranges_present": true,
+      "tags": []
+    },
+    {
+      "sentence_id": "cp2s4",
+      "page": 2,
+      "candidate_kind": "body_sentence",
+      "text": "The appendix repeats deployment checklists that experienced operators already use.",
+      "normalized_text": "The appendix repeats deployment checklists that experienced operators already use.",
+      "length": 82,
+      "item_ranges_present": true,
+      "tags": []
+    },
+    {
+      "sentence_id": "cp2s5",
+      "page": 2,
+      "candidate_kind": "body_sentence",
+      "text": "A vendor pricing comparison lists subscription tiers without affecting the technical conclusions.",
+      "normalized_text": "A vendor pricing comparison lists subscription tiers without affecting the technical conclusions.",
+      "length": 97,
+      "item_ranges_present": true,
+      "tags": []
+    }
+  ]
+}

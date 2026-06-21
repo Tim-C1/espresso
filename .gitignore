@@ -1,7 +1,9 @@
 /target/
 /frontend/node_modules/
 /frontend/dist/
+/frontend/.annotation-debug-build/
+/artifacts/annotation-debug/*.json
+/artifacts/product-eval/
 /.env
 /.env.*
 !.env.example
-

@@ -1,7 +1,19 @@
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import * as pdfjsLib from "pdfjs-dist";
 import pdfWorkerUrl from "pdfjs-dist/build/pdf.worker.mjs?url";
+import {
+  ANNOTATION_DEBUG_ENABLED,
+  type AnnotationReaderCapture,
+  type CapturedTextLayerPage,
+  type PageAnnotationDebug
+} from "./annotationDebug";
+import {
+  diagnoseAnnotationPage,
+  type DiagnosticChunk,
+  type StyleMode
+} from "./annotationDiagnostics";
 import type {
+  AnnotationSource,
   ChunkAnnotation,
   Priority,
   ReaderDirective,
@@ -11,12 +23,7 @@ import type {
 
 pdfjsLib.GlobalWorkerOptions.workerSrc = pdfWorkerUrl;
 
-type StyleMode = "filtered" | "focus" | "normal";
-
-type PageChunk = TextChunk & {
-  confidence: number;
-  directive: ReaderDirective;
-  priority: Priority;
+type PageChunk = DiagnosticChunk & {
   rationale: string;
   readerLabel: string;
 };
@@ -26,20 +33,8 @@ type PageRenderState = {
   pdf: pdfjsLib.PDFDocumentProxy;
   chunks: PageChunk[];
   mode: StyleMode;
+  onTextLayerCapture?: (page: CapturedTextLayerPage) => void;
   scale: number;
-};
-
-const PRIORITY_RANK: Record<Priority, number> = {
-  familiar: 1,
-  bridge: 2,
-  delta: 3
-};
-
-const DIRECTIVE_RANK: Record<ReaderDirective, number> = {
-  leave_normal: 0,
-  callout: 1,
-  soft_fade: 2,
-  highlight: 3
 };
 
 export default function PdfDeltaReader({
@@ -54,13 +49,21 @@ export default function PdfDeltaReader({
   const [scale, setScale] = useState(1.35);
   const [pdf, setPdf] = useState<pdfjsLib.PDFDocumentProxy | null>(null);
   const [error, setError] = useState<string | null>(null);
+  const [capturedPageCount, setCapturedPageCount] = useState(0);
   const pageRefs = useRef<Map<number, HTMLDivElement>>(new Map());
+  const capturedPagesRef = useRef<Map<number, CapturedTextLayerPage>>(new Map());
 
   const chunksByPage = useMemo(() => groupChunksByPage(reader), [reader]);
   const annotationCounts = useMemo(() => countPriorities(reader), [reader]);
+  const captureTextLayer = useCallback((page: CapturedTextLayerPage) => {
+    capturedPagesRef.current.set(page.pageNumber, page);
+    setCapturedPageCount(capturedPagesRef.current.size);
+  }, []);
 
   useEffect(() => {
     let cancelled = false;
+    capturedPagesRef.current.clear();
+    setCapturedPageCount(0);
 
     async function loadPdf() {
       setError(null);
@@ -109,6 +112,29 @@ export default function PdfDeltaReader({
     pageRefs.current.get(bounded)?.scrollIntoView({ behavior: "smooth", block: "start" });
   }
 
+  function exportDiagnosticsCapture() {
+    const pages = Array.from(capturedPagesRef.current.values()).sort(
+      (left, right) => left.pageNumber - right.pageNumber
+    );
+    if (pages.length !== reader.page_count) return;
+    const capture: AnnotationReaderCapture = {
+      fixtureType: "captured_reader_state",
+      mode,
+      name: reader.filename,
+      pages,
+      reader,
+      schemaVersion: 1
+    };
+    const url = URL.createObjectURL(
+      new Blob([JSON.stringify(capture, null, 2)], { type: "application/json" })
+    );
+    const link = document.createElement("a");
+    link.href = url;
+    link.download = "reader-state.json";
+    link.click();
+    URL.revokeObjectURL(url);
+  }
+
   return (
     <section className="pdf-reader-shell">
       <header className="pdf-reader-toolbar">
@@ -147,6 +173,16 @@ export default function PdfDeltaReader({
           <button className={mode === "normal" ? "active" : ""} onClick={() => setMode("normal")}>
             Normal PDF
           </button>
+          {ANNOTATION_DEBUG_ENABLED && (
+            <button
+              disabled={capturedPageCount !== reader.page_count}
+              onClick={exportDiagnosticsCapture}
+              title="Available after every PDF page has rendered"
+              type="button"
+            >
+              Export diagnostics
+            </button>
+          )}
         </div>
       </header>
 
@@ -161,7 +197,7 @@ export default function PdfDeltaReader({
           <i className="legend-swatch familiar" /> Familiar {annotationCounts.familiar}
         </span>
         <span className="legend-note">
-          Filtered highlights confident delta lines. Focus shows only strongest delta cues. Normal
+          Filtered uses subtle highlights and fades. Focus keeps only the strongest cues. Normal
           removes AI overlays.
         </span>
       </div>
@@ -202,6 +238,7 @@ export default function PdfDeltaReader({
                 <LazyPdfPage
                   chunks={chunksByPage.get(pageNumber) ?? []}
                   mode={mode}
+                  onTextLayerCapture={captureTextLayer}
                   pageNumber={pageNumber}
                   pdf={pdf}
                   scale={scale}
@@ -214,7 +251,7 @@ export default function PdfDeltaReader({
   );
 }
 
-function LazyPdfPage({ pageNumber, pdf, chunks, mode, scale }: PageRenderState) {
+function LazyPdfPage({ pageNumber, pdf, chunks, mode, onTextLayerCapture, scale }: PageRenderState) {
   const wrapperRef = useRef<HTMLDivElement | null>(null);
   const [visible, setVisible] = useState(pageNumber <= 2);
 
@@ -238,7 +275,14 @@ function LazyPdfPage({ pageNumber, pdf, chunks, mode, scale }: PageRenderState) 
   return (
     <div className="pdf-page-lazy" ref={wrapperRef}>
       {visible ? (
-        <PdfPage chunks={chunks} mode={mode} pageNumber={pageNumber} pdf={pdf} scale={scale} />
+        <PdfPage
+          chunks={chunks}
+          mode={mode}
+          onTextLayerCapture={onTextLayerCapture}
+          pageNumber={pageNumber}
+          pdf={pdf}
+          scale={scale}
+        />
       ) : (
         <div className="pdf-page-placeholder">Page {pageNumber}</div>
       )}
@@ -246,13 +290,15 @@ function LazyPdfPage({ pageNumber, pdf, chunks, mode, scale }: PageRenderState) 
   );
 }
 
-function PdfPage({ pageNumber, pdf, chunks, mode, scale }: PageRenderState) {
+function PdfPage({ pageNumber, pdf, chunks, mode, onTextLayerCapture, scale }: PageRenderState) {
   const pageRef = useRef<HTMLDivElement | null>(null);
   const canvasSlotRef = useRef<HTMLDivElement | null>(null);
   const textLayerRef = useRef<HTMLDivElement | null>(null);
+  const annotationLayerRef = useRef<HTMLDivElement | null>(null);
   const textItemsRef = useRef<unknown[]>([]);
   const styleStateRef = useRef({ chunks, mode });
   const [error, setError] = useState<string | null>(null);
+  const [debug, setDebug] = useState<PageAnnotationDebug | null>(null);
 
   useEffect(() => {
     styleStateRef.current = { chunks, mode };
@@ -264,10 +310,16 @@ function PdfPage({ pageNumber, pdf, chunks, mode, scale }: PageRenderState) {
     let renderTask: { cancel: () => void; promise: Promise<unknown> } | null = null;
 
     async function renderPage() {
-      if (!pageRef.current || !canvasSlotRef.current || !textLayerRef.current) return;
+      if (
+        !pageRef.current ||
+        !canvasSlotRef.current ||
+        !textLayerRef.current ||
+        !annotationLayerRef.current
+      ) return;
 
       setError(null);
       textLayerRef.current.innerHTML = "";
+      annotationLayerRef.current.innerHTML = "";
 
       try {
         const page = await pdf.getPage(pageNumber);
@@ -284,7 +336,12 @@ function PdfPage({ pageNumber, pdf, chunks, mode, scale }: PageRenderState) {
 
         renderTask = page.render({ canvasContext: context, viewport });
         await renderTask.promise;
-        if (cancelled || !canvasSlotRef.current || !textLayerRef.current) return;
+        if (
+          cancelled ||
+          !canvasSlotRef.current ||
+          !textLayerRef.current ||
+          !annotationLayerRef.current
+        ) return;
 
         canvasSlotRef.current.replaceChildren(canvas);
 
@@ -298,12 +355,22 @@ function PdfPage({ pageNumber, pdf, chunks, mode, scale }: PageRenderState) {
         await textLayer.render();
 
         if (!cancelled) {
-          syncDeltaStyles(
+          onTextLayerCapture?.({
+            items: pdfTextItemsToStrings(textItemsRef.current),
+            lineTops: Array.from(textLayerRef.current.querySelectorAll<HTMLElement>("span")).map(
+              (span) => span.offsetTop
+            ),
+            pageNumber
+          });
+          const nextDebug = syncDeltaStyles(
             textLayerRef.current,
+            annotationLayerRef.current,
             textItemsRef.current,
             styleStateRef.current.chunks,
-            styleStateRef.current.mode
+            styleStateRef.current.mode,
+            pageNumber
           );
+          if (ANNOTATION_DEBUG_ENABLED) setDebug(nextDebug);
         }
       } catch (err) {
         if (cancelled) return;
@@ -319,30 +386,114 @@ function PdfPage({ pageNumber, pdf, chunks, mode, scale }: PageRenderState) {
       renderTask?.cancel();
       textLayer?.cancel();
     };
-  }, [pageNumber, pdf, scale]);
+  }, [onTextLayerCapture, pageNumber, pdf, scale]);
 
   useEffect(() => {
-    if (!textLayerRef.current || textItemsRef.current.length === 0) return;
-    syncDeltaStyles(textLayerRef.current, textItemsRef.current, chunks, mode);
-  }, [chunks, mode]);
+    if (
+      !textLayerRef.current ||
+      !annotationLayerRef.current ||
+      textItemsRef.current.length === 0
+    ) return;
+    const nextDebug = syncDeltaStyles(
+      textLayerRef.current,
+      annotationLayerRef.current,
+      textItemsRef.current,
+      chunks,
+      mode,
+      pageNumber
+    );
+    if (ANNOTATION_DEBUG_ENABLED) setDebug(nextDebug);
+  }, [chunks, mode, pageNumber]);
 
   return (
     <>
       {error && <div className="error">{error}</div>}
       <div className="pdf-page-view" ref={pageRef}>
         <div className="pdf-canvas-slot" ref={canvasSlotRef} />
+        <div className="canonical-annotation-layer" ref={annotationLayerRef} />
         <div className="textLayer delta-text-layer" ref={textLayerRef} />
         {mode !== "normal" && <PageGuidance chunks={chunks} mode={mode} />}
       </div>
+      {ANNOTATION_DEBUG_ENABLED && debug && <AnnotationDebugPanel debug={debug} />}
     </>
+  );
+}
+
+function AnnotationDebugPanel({ debug }: { debug: PageAnnotationDebug }) {
+  const { counts } = debug;
+  return (
+    <details>
+      <summary>
+        Annotation debug, page {debug.pageNumber}: generated {counts.generated}, eligible{" "}
+        {counts.eligibleAfterFilters}, intended {counts.intendedInline}, attempted{" "}
+        {counts.matchAttempted}, candidates {counts.candidateMatches}, usable {counts.usableMatches},
+        inline {counts.renderedInline}, fallback {counts.inlineFallbackWithoutUsableMatch}, note{" "}
+        {counts.renderedAsPageNote}, normal {counts.leftNormal}, dropped {counts.dropped}
+      </summary>
+      <table>
+        <thead>
+          <tr>
+            <th>Chunk</th>
+            <th>Kind</th>
+            <th>Directive</th>
+            <th>Source</th>
+            <th>Confidence</th>
+            <th>Validation</th>
+            <th>Intended inline</th>
+            <th>Eligibility</th>
+            <th>Match attempted</th>
+            <th>Match status</th>
+            <th>Usable</th>
+            <th>Matched chars</th>
+            <th>Matched spans</th>
+            <th>Rendered spans</th>
+            <th>Final status</th>
+            <th>Drop reason</th>
+          </tr>
+        </thead>
+        <tbody>
+          {debug.annotations.map((annotation) => (
+            <tr key={annotation.chunkId}>
+              <td>{annotation.chunkId}</td>
+              <td>{annotation.annotationKind}</td>
+              <td>{annotation.directive}</td>
+              <td>{annotation.source}</td>
+              <td>{annotation.confidence.toFixed(2)}</td>
+              <td>{annotation.validationStatus}</td>
+              <td>{annotation.intendedInline ? "yes" : "no"}</td>
+              <td>{annotation.eligibilityStatus}</td>
+              <td>{annotation.matchAttempted ? "yes" : "no"}</td>
+              <td>{annotation.matchStatus}</td>
+              <td>{annotation.usableMatch ? "yes" : "no"}</td>
+              <td>{(annotation.matchedCharRatio * 100).toFixed(1)}%</td>
+              <td>{annotation.matchedSpanCount}</td>
+              <td>{annotation.renderedSpanCount}</td>
+              <td>{annotation.finalStatus}</td>
+              <td>
+                {annotation.finalStatus === "dropped" ? annotation.primaryDropReason : "-"}
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </details>
   );
 }
 
 function PageGuidance({ chunks, mode }: { chunks: PageChunk[]; mode: StyleMode }) {
   const visibleChunks = chunks.filter((chunk) => {
     if (chunk.directive === "leave_normal") return false;
-    if (mode === "focus") return chunk.directive === "highlight" && chunk.confidence >= 0.65;
-    return chunk.directive === "highlight" || chunk.directive === "callout";
+    if (mode === "focus") {
+      return (
+        (chunk.directive === "highlight" && chunk.confidence >= 0.7) ||
+        (chunk.directive === "soft_fade" && chunk.confidence >= 0.8)
+      );
+    }
+    return (
+      chunk.directive === "highlight" ||
+      chunk.directive === "callout" ||
+      chunk.directive === "soft_fade"
+    );
   });
   const counts = visibleChunks.reduce(
     (acc, chunk) => {
@@ -354,7 +505,12 @@ function PageGuidance({ chunks, mode }: { chunks: PageChunk[]; mode: StyleMode }
   const topCue = visibleChunks
     .slice()
     .sort((a, b) => b.confidence - a.confidence)
-    .find((chunk) => chunk.directive === "highlight" || chunk.directive === "callout");
+    .find(
+      (chunk) =>
+        chunk.directive === "highlight" ||
+        chunk.directive === "callout" ||
+        chunk.directive === "soft_fade"
+    );
 
   if (visibleChunks.length === 0) return null;
 
@@ -362,6 +518,7 @@ function PageGuidance({ chunks, mode }: { chunks: PageChunk[]; mode: StyleMode }
     <aside className="page-guidance">
       <div className="page-guidance-counts">
         {counts.highlight > 0 && <span className="delta">Highlight {counts.highlight}</span>}
+        {counts.soft_fade > 0 && <span className="familiar">Fade {counts.soft_fade}</span>}
         {mode === "filtered" && counts.callout > 0 && (
           <span className="bridge">Callout {counts.callout}</span>
         )}
@@ -377,6 +534,49 @@ function PageGuidance({ chunks, mode }: { chunks: PageChunk[]; mode: StyleMode }
 }
 
 function groupChunksByPage(reader: ReaderResponse): Map<number, PageChunk[]> {
+  if (reader.canonical_sentence_annotations?.length) {
+    const byPage = new Map<number, PageChunk[]>();
+    for (const annotation of reader.canonical_sentence_annotations) {
+      const pageChunks = byPage.get(annotation.page) ?? [];
+      pageChunks.push({
+        annotationGenerated: true,
+        annotationKind: "canonical_sentence_annotation",
+        confidence: normalizeConfidence(annotation.confidence),
+        directive: annotation.directive,
+        id: annotation.annotation_id,
+        itemRanges: annotation.item_ranges,
+        page: annotation.page,
+        priority: annotation.priority,
+        rationale: annotation.rationale,
+        readerLabel: annotation.reader_label,
+        source: annotation.source,
+        text: annotation.source_text
+      });
+      byPage.set(annotation.page, pageChunks);
+    }
+    return byPage;
+  }
+  if (reader.reading_anchors && reader.reading_anchors.length > 0) {
+    const byPage = new Map<number, PageChunk[]>();
+    for (const anchor of reader.reading_anchors) {
+      const pageChunks = byPage.get(anchor.page) ?? [];
+      pageChunks.push({
+        annotationGenerated: true,
+        annotationKind: "sentence_anchor",
+        confidence: normalizeConfidence(anchor.confidence),
+        directive: anchor.directive,
+        id: anchor.anchor_id,
+        page: anchor.page,
+        priority: anchor.priority,
+        rationale: anchor.rationale,
+        readerLabel: anchor.reader_label,
+        source: anchor.source,
+        text: anchor.text
+      });
+      byPage.set(anchor.page, pageChunks);
+    }
+    return byPage;
+  }
   const annotations = new Map<string, ChunkAnnotation>(
     reader.chunk_annotations.map((annotation) => [annotation.chunk_id, annotation])
   );
@@ -387,11 +587,14 @@ function groupChunksByPage(reader: ReaderResponse): Map<number, PageChunk[]> {
     const pageChunks = byPage.get(chunk.page) ?? [];
     pageChunks.push({
       ...chunk,
+      annotationKind: "legacy_chunk_annotation",
+      annotationGenerated: annotation !== undefined,
       confidence: normalizeConfidence(annotation?.confidence),
       directive: annotation?.directive ?? directiveForPriority(annotation?.priority ?? "bridge"),
       priority: annotation?.priority ?? "bridge",
       rationale: annotation?.rationale ?? "",
-      readerLabel: annotation?.reader_label ?? labelForPriority(annotation?.priority ?? "bridge")
+      readerLabel: annotation?.reader_label ?? labelForPriority(annotation?.priority ?? "bridge"),
+      source: annotation?.source ?? "fallback"
     });
     byPage.set(chunk.page, pageChunks);
   }
@@ -400,7 +603,13 @@ function groupChunksByPage(reader: ReaderResponse): Map<number, PageChunk[]> {
 }
 
 function countPriorities(reader: ReaderResponse): Record<Priority, number> {
-  return reader.chunk_annotations.reduce(
+  const annotations =
+    reader.canonical_sentence_annotations?.length
+      ? reader.canonical_sentence_annotations
+      : reader.reading_anchors && reader.reading_anchors.length > 0
+      ? reader.reading_anchors
+      : reader.chunk_annotations;
+  return annotations.reduce(
     (counts, annotation) => {
       counts[annotation.priority] += 1;
       return counts;
@@ -411,53 +620,100 @@ function countPriorities(reader: ReaderResponse): Record<Priority, number> {
 
 function syncDeltaStyles(
   layer: HTMLElement,
+  annotationLayer: HTMLElement,
   rawItems: unknown[],
   chunks: PageChunk[],
-  mode: StyleMode
-) {
+  mode: StyleMode,
+  pageNumber: number
+): PageAnnotationDebug {
   const spans = Array.from(layer.querySelectorAll<HTMLElement>("span"));
   clearDeltaStyles(spans);
+  annotationLayer.replaceChildren();
+  const items = pdfTextItemsToStrings(rawItems);
+  const { debug, rectOverlays, spanStyles } = diagnoseAnnotationPage({
+    chunks,
+    items,
+    mode,
+    pageNumber,
+    spans
+  });
+  spans.forEach((span, index) => {
+    const style = spanStyles.get(index);
+    if (style) {
+      span.classList.add(style === "delta" ? "delta-token" : "familiar-token");
+    }
+  });
+  renderRectOverlays(annotationLayer, spans, rectOverlays);
+  return debug;
+}
 
-  if (mode === "normal") return;
+function renderRectOverlays(
+  layer: HTMLElement,
+  spans: HTMLElement[],
+  overlays: Array<{
+    end: number;
+    index: number;
+    start: number;
+    style: "delta" | "familiar";
+  }>
+) {
+  const layerRect = layer.getBoundingClientRect();
+  for (const overlay of overlays) {
+    const span = spans[overlay.index];
+    const textNode = span?.firstChild;
+    if (!span || !(textNode instanceof Text)) continue;
+    const [rawStart, rawEnd] = normalizedOffsetsToRaw(
+      textNode.data,
+      overlay.start,
+      overlay.end
+    );
+    if (rawEnd <= rawStart) continue;
+    const range = document.createRange();
+    range.setStart(textNode, rawStart);
+    range.setEnd(textNode, rawEnd);
+    for (const rect of range.getClientRects()) {
+      if (rect.width <= 0 || rect.height <= 0) continue;
+      const element = document.createElement("div");
+      element.className = `canonical-annotation-rect ${overlay.style}`;
+      element.style.left = `${rect.left - layerRect.left}px`;
+      element.style.top = `${rect.top - layerRect.top}px`;
+      element.style.width = `${rect.width}px`;
+      element.style.height = `${rect.height}px`;
+      layer.appendChild(element);
+    }
+    range.detach();
+  }
+}
 
-  const items = rawItems.map((item) => {
+function normalizedOffsetsToRaw(text: string, start: number, end: number): [number, number] {
+  const boundaries = Array.from({ length: text.length + 1 }, (_, offset) => offset).filter(
+    (offset) => offset === 0 || offset === text.length || !isLowSurrogate(text.charCodeAt(offset))
+  );
+  const rawOffsetFor = (target: number) =>
+    boundaries.find(
+      (offset) => canonicalItemText(text.slice(0, offset)).length >= target
+    ) ?? text.length;
+  return [rawOffsetFor(start), rawOffsetFor(end)];
+}
+
+function isLowSurrogate(value: number): boolean {
+  return value >= 0xdc00 && value <= 0xdfff;
+}
+
+function canonicalItemText(text: string): string {
+  return text
+    .normalize("NFKC")
+    .replace(/\u00ad/g, "")
+    .replace(/\s+/gu, " ")
+    .trim();
+}
+
+function pdfTextItemsToStrings(rawItems: unknown[]): string[] {
+  return rawItems.map((item) => {
     if (item && typeof item === "object" && "str" in item) {
       return String((item as { str: unknown }).str ?? "");
     }
     return "";
-  });
-  const ranges = buildTextRanges(items);
-  const spanPriorities = new Map<number, Priority>();
-
-  for (const chunk of chunks) {
-    if (!shouldStyleChunk(chunk, mode)) continue;
-
-    const matches = findChunkMatches(ranges.fullText, chunk.text);
-    for (const match of matches) {
-      if (!isReaderSafeMatch(match, chunk, mode)) continue;
-
-      ranges.items.forEach((range, index) => {
-        if (range.end <= match.start || range.start >= match.end) return;
-        const current = spanPriorities.get(index);
-        if (!current || PRIORITY_RANK[chunk.priority] > PRIORITY_RANK[current]) {
-          spanPriorities.set(index, chunk.priority);
-        }
-      });
-    }
-
-    if (chunk.directive === "highlight" && matches.length === 0) {
-      for (const index of fallbackDeltaLineIndexes(ranges, chunk.text, mode)) {
-        spanPriorities.set(index, "delta");
-      }
-    }
-  }
-
-  const expandedPriorities = expandToWholeLines(spans, spanPriorities);
-  spans.forEach((span, index) => {
-    const priority = expandedPriorities.get(index);
-    if (priority) {
-      span.classList.add(`${priority}-token`);
-    }
   });
 }
 
@@ -465,164 +721,6 @@ function clearDeltaStyles(spans: HTMLElement[]) {
   spans.forEach((span) => {
     span.classList.remove("delta-token", "bridge-token", "familiar-token", "focus-hidden-token");
   });
-}
-
-function buildTextRanges(items: string[]) {
-  let cursor = 0;
-  const ranges = items.map((item) => {
-    const normalized = normalizeForMatch(item);
-    const start = cursor;
-    cursor += normalized.length;
-    const end = cursor;
-    cursor += 1;
-    return { end, normalized, start };
-  });
-
-  return {
-    fullText: ranges.map((range) => range.normalized).join(" "),
-    items: ranges
-  };
-}
-
-type TextMatch = {
-  end: number;
-  matchedWords: number;
-  start: number;
-  type: "exact" | "phrase";
-};
-
-function findChunkMatches(pageText: string, chunkText: string): TextMatch[] {
-  const normalizedChunk = normalizeForMatch(chunkText);
-  if (!normalizedChunk) return [];
-
-  const chunkWords = meaningfulWords(normalizedChunk);
-  const exact = pageText.indexOf(normalizedChunk);
-  if (exact >= 0) {
-    return [
-      {
-        end: exact + normalizedChunk.length,
-        matchedWords: chunkWords.length,
-        start: exact,
-        type: "exact"
-      }
-    ];
-  }
-
-  const words = chunkWords;
-  const matches: TextMatch[] = [];
-  const seen = new Set<string>();
-  const windowSizes = [24, 20, 16, 12];
-
-  for (const size of windowSizes) {
-    for (let index = 0; index + size <= words.length; index += Math.max(1, Math.floor(size / 2))) {
-      const phrase = words.slice(index, index + size).join(" ");
-      const matchStart = pageText.indexOf(phrase);
-      if (matchStart >= 0) {
-        const match: TextMatch = {
-          end: matchStart + phrase.length,
-          matchedWords: size,
-          start: matchStart,
-          type: "phrase"
-        };
-        const key = `${match.start}:${match.end}`;
-        if (!seen.has(key) && !overlapsExisting(matches, match)) {
-          seen.add(key);
-          matches.push(match);
-        }
-      }
-    }
-    if (matches.length >= 4) break;
-  }
-
-  return matches.sort((a, b) => a.start - b.start);
-}
-
-function overlapsExisting(
-  matches: TextMatch[],
-  candidate: { start: number; end: number }
-): boolean {
-  return matches.some((match) => candidate.start < match.end && candidate.end > match.start);
-}
-
-function shouldStyleChunk(chunk: PageChunk, mode: StyleMode): boolean {
-  if (chunk.directive !== "highlight") return false;
-  if (chunk.confidence < (mode === "focus" ? 0.72 : 0.58)) return false;
-  return chunk.priority === "delta";
-}
-
-function isReaderSafeMatch(match: TextMatch, chunk: PageChunk, mode: StyleMode): boolean {
-  if (chunk.directive === "highlight") {
-    const minimumWords = mode === "focus" ? 18 : Math.max(10, Math.round(18 - chunk.confidence * 8));
-    return match.type === "exact" || match.matchedWords >= minimumWords;
-  }
-  return false;
-}
-
-function fallbackDeltaLineIndexes(
-  ranges: ReturnType<typeof buildTextRanges>,
-  chunkText: string,
-  mode: StyleMode
-): number[] {
-  const chunkWords = new Set(meaningfulWords(normalizeForMatch(chunkText)));
-  if (chunkWords.size === 0) return [];
-
-  const scored = ranges.items
-    .map((range, index) => {
-      const words = meaningfulWords(range.normalized);
-      const hits = words.filter((word) => chunkWords.has(word)).length;
-      return {
-        index,
-        score: words.length === 0 ? 0 : hits / words.length,
-        words: words.length
-      };
-    })
-    .filter((item) => item.words >= 3 && item.score >= (mode === "focus" ? 0.55 : 0.38))
-    .sort((a, b) => b.score - a.score)
-    .slice(0, mode === "focus" ? 3 : 6);
-
-  return scored.map((item) => item.index);
-}
-
-function expandToWholeLines(
-  spans: HTMLElement[],
-  priorities: Map<number, Priority>
-): Map<number, Priority> {
-  const expanded = new Map<number, Priority>();
-  const lineByTop = new Map<number, number[]>();
-
-  spans.forEach((span, index) => {
-    const top = Math.round(span.offsetTop / 4) * 4;
-    const line = lineByTop.get(top) ?? [];
-    line.push(index);
-    lineByTop.set(top, line);
-  });
-
-  for (const [index, priority] of priorities.entries()) {
-    const span = spans[index];
-    if (!span) continue;
-    const top = Math.round(span.offsetTop / 4) * 4;
-    const line = lineByTop.get(top) ?? [index];
-    for (const lineIndex of line) {
-      const current = expanded.get(lineIndex);
-      if (!current || PRIORITY_RANK[priority] > PRIORITY_RANK[current]) {
-        expanded.set(lineIndex, priority);
-      }
-    }
-  }
-
-  return expanded;
-}
-
-function normalizeForMatch(text: string): string {
-  return text
-    .toLowerCase()
-    .replace(/[^a-z0-9]+/g, " ")
-    .replace(/\s+/g, " ")
-    .trim();
-}
-
-function meaningfulWords(text: string): string[] {
-  return text.split(" ").filter((word) => word.length > 2);
 }
 
 function normalizeConfidence(value: number | undefined): number {
@@ -633,7 +731,7 @@ function normalizeConfidence(value: number | undefined): number {
 function directiveForPriority(priority: Priority): ReaderDirective {
   if (priority === "delta") return "highlight";
   if (priority === "bridge") return "callout";
-  return "leave_normal";
+  return "soft_fade";
 }
 
 function labelForPriority(priority: Priority): string {

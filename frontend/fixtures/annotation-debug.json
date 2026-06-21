@@ -1,0 +1,84 @@
+{
+  "name": "deterministic-text-layer-fixture",
+  "fixtureType": "synthetic_text_layer",
+  "mode": "filtered",
+  "expectedSummary": {
+    "generated": 10,
+    "intendedInline": 7,
+    "inlineFallbackWithoutUsableMatch": 0,
+    "validated": 9,
+    "invalid": 1,
+    "eligibleAfterFilters": 8,
+    "matchAttempted": 6,
+    "candidateMatches": 5,
+    "usableMatches": 5,
+    "renderedInline": 3,
+    "renderedAsPageNote": 1,
+    "leftNormal": 1,
+    "dropped": 5
+  },
+  "pages": [
+    {
+      "pageNumber": 1,
+      "items": [
+        "A reliable diagnostic harness",
+        "normalizes text across",
+        "PDF line breaks.",
+        "Low confidence content is still measurable.",
+        "Callouts remain reader guidance only.",
+        "Familiar material can be softly faded.",
+        "filler six", "filler seven", "filler eight", "filler nine",
+        "filler ten", "filler eleven", "filler twelve", "filler thirteen",
+        "filler fourteen", "filler fifteen", "filler sixteen", "filler seventeen",
+        "filler eighteen", "filler nineteen"
+      ],
+      "lineTops": [0, 20, 40, 60, 80, 100, 120, 140, 160, 180, 200, 220, 240, 260, 280, 300, 320, 340, 360, 380]
+    },
+    {
+      "pageNumber": 2,
+      "items": [
+        "This candidate occupies",
+        "an entire crowded line.",
+        "filler two", "filler three", "filler four", "filler five",
+        "filler six", "filler seven", "filler eight", "filler nine"
+      ],
+      "lineTops": [0, 0, 20, 40, 60, 80, 100, 120, 140, 160]
+    },
+    {
+      "pageNumber": 3,
+      "items": [
+        "Two annotations target this exact sentence.",
+        "filler one", "filler two", "filler three", "filler four",
+        "filler five", "filler six", "filler seven", "filler eight", "filler nine",
+        "filler ten", "filler eleven", "filler twelve", "filler thirteen",
+        "filler fourteen", "filler fifteen", "filler sixteen", "filler seventeen",
+        "filler eighteen", "filler nineteen"
+      ],
+      "lineTops": [0, 20, 40, 60, 80, 100, 120, 140, 160, 180, 200, 220, 240, 260, 280, 300, 320, 340, 360, 380]
+    }
+  ],
+  "chunks": [
+    { "id": "p1-valid-multispan", "page": 1, "text": "A reliable diagnostic harness normalizes text across PDF line breaks." },
+    { "id": "p1-below-confidence", "page": 1, "text": "Low confidence content is still measurable." },
+    { "id": "p1-unmatched", "page": 1, "text": "Quantum orchard telemetry has no page equivalent." },
+    { "id": "p1-callout", "page": 1, "text": "Callouts remain reader guidance only." },
+    { "id": "p1-leave-normal", "page": 1, "text": "filler six" },
+    { "id": "p1-invalid-directive", "page": 1, "text": "filler seven" },
+    { "id": "p1-fade", "page": 1, "text": "Familiar material can be softly faded." },
+    { "id": "p2-density-cap", "page": 2, "text": "This candidate occupies an entire crowded line." },
+    { "id": "p3-overlap-winner", "page": 3, "text": "Two annotations target this exact sentence." },
+    { "id": "p3-overlap-loser", "page": 3, "text": "Two annotations target this exact sentence." }
+  ],
+  "annotations": [
+    { "chunk_id": "p1-valid-multispan", "source": "mock", "priority": "delta", "directive": "highlight", "confidence": 0.96, "rationale": "fixture", "reader_label": "valid" },
+    { "chunk_id": "p1-below-confidence", "source": "mock", "priority": "delta", "directive": "highlight", "confidence": 0.4, "rationale": "fixture", "reader_label": "low" },
+    { "chunk_id": "p1-unmatched", "source": "mock", "priority": "delta", "directive": "highlight", "confidence": 0.9, "rationale": "fixture", "reader_label": "unmatched" },
+    { "chunk_id": "p1-callout", "source": "mock", "priority": "bridge", "directive": "callout", "confidence": 0.9, "rationale": "fixture", "reader_label": "callout" },
+    { "chunk_id": "p1-leave-normal", "source": "mock", "priority": "bridge", "directive": "leave_normal", "confidence": 0.9, "rationale": "fixture", "reader_label": "normal" },
+    { "chunk_id": "p1-invalid-directive", "source": "mock", "priority": "bridge", "directive": "sparkle", "confidence": 0.9, "rationale": "fixture", "reader_label": "invalid" },
+    { "chunk_id": "p1-fade", "source": "mock", "priority": "familiar", "directive": "soft_fade", "confidence": 0.9, "rationale": "fixture", "reader_label": "fade" },
+    { "chunk_id": "p2-density-cap", "source": "mock", "priority": "delta", "directive": "highlight", "confidence": 0.9, "rationale": "fixture", "reader_label": "density" },
+    { "chunk_id": "p3-overlap-winner", "source": "mock", "priority": "delta", "directive": "highlight", "confidence": 0.95, "rationale": "fixture", "reader_label": "winner" },
+    { "chunk_id": "p3-overlap-loser", "source": "mock", "priority": "delta", "directive": "highlight", "confidence": 0.85, "rationale": "fixture", "reader_label": "loser" }
+  ]
+}

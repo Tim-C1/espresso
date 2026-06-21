@@ -1,0 +1,7 @@
+{
+  "reader_profile": "An experienced retrieval platform lead evaluating only decision-relevant changes beyond validated production practice.",
+  "known_concepts": ["standard retrieval operation"],
+  "familiar_claims": ["established retrieval baseline", "previously validated configuration"],
+  "interests": ["adaptive freshness budget", "selective refresh", "new benchmark result"],
+  "explicit_not_interested_topics": ["deployment checklist", "vendor pricing"]
+}

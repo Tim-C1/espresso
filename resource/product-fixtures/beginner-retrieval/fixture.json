@@ -1,0 +1,10 @@
+{
+  "fixture_type": "realistic",
+  "baseline_name": "beginner_retrieval",
+  "thresholds": {
+    "delta_precision_min": 0.8,
+    "delta_recall_min": 0.8,
+    "known_as_delta_rate_max": 0.2,
+    "visible_guidance_per_page_max": 4.5
+  }
+}

@@ -1,0 +1,52 @@
+{
+  "labels": [
+    {
+      "sentence_id": "cp1s2",
+      "expected_priority": "familiar",
+      "expected_directive": "soft_fade",
+      "reason": "Restates the validated baseline without new evidence."
+    },
+    {
+      "sentence_id": "cp1s3",
+      "expected_priority": "delta",
+      "expected_directive": "highlight",
+      "reason": "Reports a new failure condition for a previously validated configuration."
+    },
+    {
+      "sentence_id": "cp1s4",
+      "expected_priority": "delta",
+      "expected_directive": "highlight",
+      "reason": "Reports a regression for a new workload despite the familiar freshness mechanism."
+    },
+    {
+      "sentence_id": "cp1s5",
+      "expected_priority": "delta",
+      "expected_directive": "highlight",
+      "reason": "Quantifies a newly observed latency and quality tradeoff in a familiar reranker."
+    },
+    {
+      "sentence_id": "cp2s2",
+      "expected_priority": "familiar",
+      "expected_directive": "soft_fade",
+      "reason": "Restates known hybrid retrieval behavior without a changed condition."
+    },
+    {
+      "sentence_id": "cp2s3",
+      "expected_priority": "delta",
+      "expected_directive": "highlight",
+      "reason": "Shows familiar hybrid retrieval behaving differently during distribution shift."
+    },
+    {
+      "sentence_id": "cp2s4",
+      "expected_priority": "familiar",
+      "expected_directive": "soft_fade",
+      "reason": "Previously validated operational detail with no novelty."
+    },
+    {
+      "sentence_id": "cp2s5",
+      "expected_priority": "familiar",
+      "expected_directive": "leave_normal",
+      "reason": "Commercial detail is outside the reader's interests."
+    }
+  ]
+}

@@ -1,0 +1,30 @@
+{
+  "name": "hyphenated-line-break-pdfjs-items",
+  "fixtureType": "captured_pdfjs_text_content",
+  "mode": "filtered",
+  "expectedSummary": {
+    "generated": 1, "validated": 1, "invalid": 0, "eligibleAfterFilters": 1,
+    "intendedInline": 1, "inlineFallbackWithoutUsableMatch": 0,
+    "matchAttempted": 1, "candidateMatches": 1, "usableMatches": 1, "renderedInline": 1,
+    "renderedAsPageNote": 0, "leftNormal": 0, "dropped": 0
+  },
+  "pages": [{
+    "pageNumber": 1,
+    "items": [
+      "Hyphenation preserves inter-", "operability across line breaks.",
+      "filler 02", "filler 03", "filler 04", "filler 05", "filler 06", "filler 07",
+      "filler 08", "filler 09", "filler 10", "filler 11", "filler 12", "filler 13",
+      "filler 14", "filler 15", "filler 16", "filler 17", "filler 18", "filler 19"
+    ],
+    "lineTops": [0, 20, 40, 60, 80, 100, 120, 140, 160, 180, 200, 220, 240, 260, 280, 300, 320, 340, 360, 380]
+  }],
+  "chunks": [{
+    "id": "hyphenation-match", "page": 1,
+    "text": "Hyphenation preserves interoperability across line breaks."
+  }],
+  "annotations": [{
+    "chunk_id": "hyphenation-match", "source": "mock", "priority": "familiar",
+    "directive": "soft_fade", "confidence": 0.9, "rationale": "fixture",
+    "reader_label": "hyphenation"
+  }]
+}

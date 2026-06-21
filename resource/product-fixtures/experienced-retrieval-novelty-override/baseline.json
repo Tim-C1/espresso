@@ -1,0 +1,17 @@
+{
+  "reader_profile": "An experienced retrieval platform lead who knows the deployed configurations but needs genuinely new failure evidence and changed operating conditions.",
+  "known_concepts": ["nearest-neighbor candidate generation"],
+  "familiar_claims": [
+    "previously validated configuration",
+    "adaptive freshness budget",
+    "familiar reranking setup",
+    "standard hybrid retrieval"
+  ],
+  "interests": [
+    "burst traffic",
+    "archival workload",
+    "latency quality tradeoff",
+    "distribution shift"
+  ],
+  "explicit_not_interested_topics": ["vendor pricing"]
+}

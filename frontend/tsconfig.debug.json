@@ -1,0 +1,21 @@
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "lib": ["DOM", "ES2022"],
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
+    "resolveJsonModule": true,
+    "strict": true,
+    "skipLibCheck": true,
+    "outDir": ".annotation-debug-build",
+    "rootDir": ".",
+    "types": ["vite/client"]
+  },
+  "include": [
+    "fixtures/*.json",
+    "src/annotationDebug.ts",
+    "src/annotationDiagnostics.ts",
+    "src/types.ts",
+    "src/debug/*.ts"
+  ]
+}

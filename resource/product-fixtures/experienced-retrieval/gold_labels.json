@@ -1,0 +1,52 @@
+{
+  "labels": [
+    {
+      "sentence_id": "cp1s2",
+      "expected_priority": "familiar",
+      "expected_directive": "soft_fade",
+      "reason": "The expert already knows embedding storage and nearest-neighbor retrieval."
+    },
+    {
+      "sentence_id": "cp1s3",
+      "expected_priority": "familiar",
+      "expected_directive": "leave_normal",
+      "reason": "The basic RAG pipeline is known background and needs no extra guidance."
+    },
+    {
+      "sentence_id": "cp1s4",
+      "expected_priority": "bridge",
+      "expected_directive": "callout",
+      "reason": "This connects familiar indexing workflows to the new freshness-budget idea."
+    },
+    {
+      "sentence_id": "cp1s5",
+      "expected_priority": "delta",
+      "expected_directive": "highlight",
+      "reason": "The quantified stale-answer improvement is a new decision-relevant result."
+    },
+    {
+      "sentence_id": "cp2s2",
+      "expected_priority": "delta",
+      "expected_directive": "highlight",
+      "reason": "The write-amplification result is a second genuinely new quantitative claim."
+    },
+    {
+      "sentence_id": "cp2s3",
+      "expected_priority": "bridge",
+      "expected_directive": "callout",
+      "reason": "Known drift monitoring is connected to selective reindexing actions."
+    },
+    {
+      "sentence_id": "cp2s4",
+      "expected_priority": "familiar",
+      "expected_directive": "leave_normal",
+      "reason": "Repeated deployment checklists are explicitly outside the reader's interests."
+    },
+    {
+      "sentence_id": "cp2s5",
+      "expected_priority": "familiar",
+      "expected_directive": "leave_normal",
+      "reason": "Vendor pricing is explicitly irrelevant to the reader's technical goal."
+    }
+  ]
+}

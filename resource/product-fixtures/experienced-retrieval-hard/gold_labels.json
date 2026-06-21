@@ -1,0 +1,48 @@
+{
+  "labels": [
+    { "sentence_id": "cp1s2", "expected_priority": "familiar", "expected_directive": "soft_fade", "reason": "Established baseline background." },
+    { "sentence_id": "cp1s3", "expected_priority": "familiar", "expected_directive": "leave_normal", "reason": "Standard known operation." },
+    { "sentence_id": "cp1s4", "expected_priority": "familiar", "expected_directive": "leave_normal", "reason": "Adversarial near miss already validated by the reader." },
+    { "sentence_id": "cp1s5", "expected_priority": "bridge", "expected_directive": "callout", "reason": "Connects standard operations to selective refresh." },
+    { "sentence_id": "cp1s6", "expected_priority": "delta", "expected_directive": "highlight", "reason": "New quantified stale-answer result." },
+    { "sentence_id": "cp1s7", "expected_priority": "delta", "expected_directive": "highlight", "reason": "New quantified recovery result." },
+    { "sentence_id": "cp1s8", "expected_priority": "familiar", "expected_directive": "leave_normal", "reason": "Low-value deployment repetition." },
+    { "sentence_id": "cp1s9", "expected_priority": "familiar", "expected_directive": "leave_normal", "reason": "Commercial material is irrelevant." },
+
+    { "sentence_id": "cp2s2", "expected_priority": "familiar", "expected_directive": "soft_fade", "reason": "Established baseline background." },
+    { "sentence_id": "cp2s3", "expected_priority": "familiar", "expected_directive": "leave_normal", "reason": "Standard known operation." },
+    { "sentence_id": "cp2s4", "expected_priority": "familiar", "expected_directive": "leave_normal", "reason": "Adversarial near miss already validated by the reader." },
+    { "sentence_id": "cp2s5", "expected_priority": "bridge", "expected_directive": "callout", "reason": "Connects standard operations to selective refresh." },
+    { "sentence_id": "cp2s6", "expected_priority": "delta", "expected_directive": "highlight", "reason": "New quantified recall result." },
+    { "sentence_id": "cp2s7", "expected_priority": "delta", "expected_directive": "highlight", "reason": "New quantified latency result." },
+    { "sentence_id": "cp2s8", "expected_priority": "familiar", "expected_directive": "leave_normal", "reason": "Low-value deployment repetition." },
+    { "sentence_id": "cp2s9", "expected_priority": "familiar", "expected_directive": "leave_normal", "reason": "Commercial material is irrelevant." },
+
+    { "sentence_id": "cp3s2", "expected_priority": "familiar", "expected_directive": "soft_fade", "reason": "Established baseline background." },
+    { "sentence_id": "cp3s3", "expected_priority": "familiar", "expected_directive": "leave_normal", "reason": "Standard known operation." },
+    { "sentence_id": "cp3s4", "expected_priority": "familiar", "expected_directive": "leave_normal", "reason": "Adversarial near miss already validated by the reader." },
+    { "sentence_id": "cp3s5", "expected_priority": "bridge", "expected_directive": "callout", "reason": "Connects standard operations to selective refresh." },
+    { "sentence_id": "cp3s6", "expected_priority": "delta", "expected_directive": "highlight", "reason": "New quantified precision result." },
+    { "sentence_id": "cp3s7", "expected_priority": "delta", "expected_directive": "highlight", "reason": "New quantified reranking result." },
+    { "sentence_id": "cp3s8", "expected_priority": "familiar", "expected_directive": "leave_normal", "reason": "Low-value deployment repetition." },
+    { "sentence_id": "cp3s9", "expected_priority": "familiar", "expected_directive": "leave_normal", "reason": "Commercial material is irrelevant." },
+
+    { "sentence_id": "cp4s2", "expected_priority": "familiar", "expected_directive": "soft_fade", "reason": "Established baseline background." },
+    { "sentence_id": "cp4s3", "expected_priority": "familiar", "expected_directive": "leave_normal", "reason": "Standard known operation." },
+    { "sentence_id": "cp4s4", "expected_priority": "familiar", "expected_directive": "leave_normal", "reason": "Adversarial near miss already validated by the reader." },
+    { "sentence_id": "cp4s5", "expected_priority": "bridge", "expected_directive": "callout", "reason": "Connects standard operations to selective refresh." },
+    { "sentence_id": "cp4s6", "expected_priority": "delta", "expected_directive": "highlight", "reason": "New quantified cache-staleness result." },
+    { "sentence_id": "cp4s7", "expected_priority": "delta", "expected_directive": "highlight", "reason": "New quantified cache-miss result." },
+    { "sentence_id": "cp4s8", "expected_priority": "familiar", "expected_directive": "leave_normal", "reason": "Low-value deployment repetition." },
+    { "sentence_id": "cp4s9", "expected_priority": "familiar", "expected_directive": "leave_normal", "reason": "Commercial material is irrelevant." },
+
+    { "sentence_id": "cp5s2", "expected_priority": "familiar", "expected_directive": "soft_fade", "reason": "Established baseline background." },
+    { "sentence_id": "cp5s3", "expected_priority": "familiar", "expected_directive": "leave_normal", "reason": "Standard known operation." },
+    { "sentence_id": "cp5s4", "expected_priority": "familiar", "expected_directive": "leave_normal", "reason": "Adversarial near miss already validated by the reader." },
+    { "sentence_id": "cp5s5", "expected_priority": "bridge", "expected_directive": "callout", "reason": "Connects standard operations to selective refresh." },
+    { "sentence_id": "cp5s6", "expected_priority": "delta", "expected_directive": "highlight", "reason": "New quantified drift-detection result." },
+    { "sentence_id": "cp5s7", "expected_priority": "delta", "expected_directive": "highlight", "reason": "New quantified false-alert result." },
+    { "sentence_id": "cp5s8", "expected_priority": "familiar", "expected_directive": "leave_normal", "reason": "Low-value deployment repetition." },
+    { "sentence_id": "cp5s9", "expected_priority": "familiar", "expected_directive": "leave_normal", "reason": "Commercial material is irrelevant." }
+  ]
+}

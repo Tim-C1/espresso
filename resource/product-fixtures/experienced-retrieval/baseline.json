@@ -1,0 +1,27 @@
+{
+  "reader_profile": "An experienced retrieval engineer who already operates vector search and retrieval-augmented generation systems.",
+  "known_concepts": [
+    "vector databases",
+    "embeddings",
+    "nearest-neighbor retrieval",
+    "retrieval augmented generation",
+    "indexing workflows",
+    "monitoring drift"
+  ],
+  "familiar_claims": [
+    "vector databases store embeddings and use nearest-neighbor retrieval"
+  ],
+  "interests": [
+    "adaptive freshness budgets",
+    "query-specific freshness budgets",
+    "stale-answer errors",
+    "confidence-triggered reindexing",
+    "write amplification",
+    "bursty workloads"
+  ],
+  "explicit_not_interested_topics": [
+    "deployment checklists",
+    "vendor pricing",
+    "subscription tiers"
+  ]
+}

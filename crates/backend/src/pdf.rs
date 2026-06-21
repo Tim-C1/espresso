@@ -1,4 +1,4 @@
-use crate::models::TextChunk;
+use crate::models::{SentenceCandidate, TextChunk};
 
 pub fn extract_text_chunks(pdf_bytes: &[u8]) -> anyhow::Result<(usize, Vec<TextChunk>)> {
     let page_texts = pdf_extract::extract_text_from_mem_by_pages(pdf_bytes)?;
@@ -20,6 +20,59 @@ pub fn extract_text_chunks(pdf_bytes: &[u8]) -> anyhow::Result<(usize, Vec<TextC
     }
 
     Ok((page_count, chunks))
+}
+
+pub fn extract_sentence_candidates(chunks: &[TextChunk]) -> Vec<SentenceCandidate> {
+    chunks
+        .iter()
+        .flat_map(|chunk| {
+            sentence_ranges(&chunk.text)
+                .into_iter()
+                .enumerate()
+                .map(|(index, (char_start, char_end, text))| SentenceCandidate {
+                    sentence_id: format!("{}s{}", chunk.id, index + 1),
+                    chunk_id: chunk.id.clone(),
+                    page: chunk.page,
+                    text,
+                    char_start,
+                    char_end,
+                })
+                .collect::<Vec<_>>()
+        })
+        .collect()
+}
+
+fn sentence_ranges(text: &str) -> Vec<(usize, usize, String)> {
+    let chars = text.chars().collect::<Vec<_>>();
+    let mut ranges = Vec::new();
+    let mut start = 0;
+    for (index, character) in chars.iter().enumerate() {
+        let terminal = matches!(character, '.' | '!' | '?');
+        let boundary = terminal && (index + 1 == chars.len() || chars[index + 1].is_whitespace());
+        if boundary {
+            push_sentence_range(&chars, start, index + 1, &mut ranges);
+            start = index + 1;
+        }
+    }
+    push_sentence_range(&chars, start, chars.len(), &mut ranges);
+    ranges
+}
+
+fn push_sentence_range(
+    chars: &[char],
+    mut start: usize,
+    mut end: usize,
+    ranges: &mut Vec<(usize, usize, String)>,
+) {
+    while start < end && chars[start].is_whitespace() {
+        start += 1;
+    }
+    while end > start && chars[end - 1].is_whitespace() {
+        end -= 1;
+    }
+    if start < end {
+        ranges.push((start, end, chars[start..end].iter().collect()));
+    }
 }
 
 fn chunk_paragraphs(text: &str) -> Vec<String> {
@@ -55,5 +108,22 @@ mod tests {
     #[test]
     fn skips_empty_pages_without_losing_page_count() {
         assert!(chunk_paragraphs("").is_empty());
+    }
+
+    #[test]
+    fn sentence_candidates_preserve_chunk_and_page_offsets() {
+        let chunks = vec![TextChunk {
+            id: "p2c3".to_owned(),
+            page: 2,
+            text: "First sentence. Second sentence!".to_owned(),
+        }];
+        let candidates = extract_sentence_candidates(&chunks);
+        assert_eq!(candidates.len(), 2);
+        assert_eq!(candidates[1].sentence_id, "p2c3s2");
+        assert_eq!(candidates[1].chunk_id, "p2c3");
+        assert_eq!(candidates[1].page, 2);
+        assert_eq!(candidates[1].text, "Second sentence!");
+        assert_eq!(candidates[1].char_start, 16);
+        assert_eq!(candidates[1].char_end, 32);
     }
 }

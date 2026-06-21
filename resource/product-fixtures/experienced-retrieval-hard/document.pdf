@@ -1,0 +1,159 @@
+%PDF-1.4
+%1234
+1 0 obj
+<< /Type /Catalog /Pages 2 0 R >>
+endobj
+2 0 obj
+<< /Type /Pages /Kids [3 0 R 5 0 R 7 0 R 9 0 R 11 0 R] /Count 5 >>
+endobj
+4 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>
+endobj
+3 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 4 0 R >> >> /Contents 12 0 R >>
+endobj
+5 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 4 0 R >> >> /Contents 13 0 R >>
+endobj
+7 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 4 0 R >> >> /Contents 14 0 R >>
+endobj
+9 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 4 0 R >> >> /Contents 15 0 R >>
+endobj
+11 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 4 0 R >> >> /Contents 16 0 R >>
+endobj
+12 0 obj
+<< /Length 901 >>
+stream
+BT
+/F1 6 Tf
+52 750 Td
+(Index Freshness Study.) Tj
+0 -28 Td
+(An established retrieval baseline stores embeddings in vector indexes for semantic lookup.) Tj
+0 -28 Td
+(Nearest-neighbor search remains a standard retrieval operation for candidate generation.) Tj
+0 -28 Td
+(An adaptive freshness budget was part of the previously validated configuration and is not new evidence.) Tj
+0 -28 Td
+(A standard retrieval operation can feed selective refresh decisions when index age crosses a policy boundary.) Tj
+0 -28 Td
+(A new benchmark result reports a 19 percent reduction in stale answers under regional traffic shifts.) Tj
+0 -28 Td
+(A second new benchmark result cuts recovery time by 27 percent after delayed ingestion.) Tj
+0 -28 Td
+(The deployment checklist repeats routine ownership and rollback steps.) Tj
+0 -28 Td
+(The vendor pricing appendix compares support tiers without changing the method.) Tj
+ET
+endstream
+endobj
+13 0 obj
+<< /Length 879 >>
+stream
+BT
+/F1 6 Tf
+52 750 Td
+(Query Rewrite Study.) Tj
+0 -28 Td
+(An established retrieval baseline applies deterministic query normalization before search.) Tj
+0 -28 Td
+(Spelling correction remains a standard retrieval operation for noisy user input.) Tj
+0 -28 Td
+(An adaptive freshness budget for rewrite dictionaries was in the previously validated configuration.) Tj
+0 -28 Td
+(A standard retrieval operation can trigger selective refresh after rewrite drift exceeds its limit.) Tj
+0 -28 Td
+(A new benchmark result improves rare-query recall by 14 percent without extra model calls.) Tj
+0 -28 Td
+(Another new benchmark result lowers rewrite latency by 22 percent during traffic bursts.) Tj
+0 -28 Td
+(The deployment checklist repeats familiar canary and rollback instructions.) Tj
+0 -28 Td
+(The vendor pricing section lists enterprise seats without affecting retrieval quality.) Tj
+ET
+endstream
+endobj
+14 0 obj
+<< /Length 824 >>
+stream
+BT
+/F1 6 Tf
+52 750 Td
+(Reranking Study.) Tj
+0 -28 Td
+(An established retrieval baseline uses cross-encoder reranking for the top candidates.) Tj
+0 -28 Td
+(Score calibration remains a standard retrieval operation before final ranking.) Tj
+0 -28 Td
+(An adaptive freshness budget for reranker features was in the previously validated configuration.) Tj
+0 -28 Td
+(A standard retrieval operation supports selective refresh when feature drift is detected.) Tj
+0 -28 Td
+(A new benchmark result raises answer-supported precision by 11 percent on ambiguous queries.) Tj
+0 -28 Td
+(A second new benchmark result reduces unnecessary reranking by 34 percent at equal recall.) Tj
+0 -28 Td
+(The deployment checklist repeats standard shadow-testing steps.) Tj
+0 -28 Td
+(The vendor pricing appendix compares accelerator rental plans.) Tj
+ET
+endstream
+endobj
+15 0 obj
+<< /Length 849 >>
+stream
+BT
+/F1 6 Tf
+52 750 Td
+(Cache Policy Study.) Tj
+0 -28 Td
+(An established retrieval baseline caches stable semantic answers for repeated requests.) Tj
+0 -28 Td
+(Cache invalidation remains a standard retrieval operation after source updates.) Tj
+0 -28 Td
+(An adaptive freshness budget for cached answers was in the previously validated configuration.) Tj
+0 -28 Td
+(A standard retrieval operation enables selective refresh for entries near their age limit.) Tj
+0 -28 Td
+(A new benchmark result cuts stale cache responses by 38 percent during rapid updates.) Tj
+0 -28 Td
+(A second new benchmark result reduces cache misses by 16 percent without serving older evidence.) Tj
+0 -28 Td
+(The deployment checklist repeats ordinary capacity planning guidance.) Tj
+0 -28 Td
+(The vendor pricing page compares storage bundles without changing cache policy.) Tj
+ET
+endstream
+endobj
+16 0 obj
+<< /Length 845 >>
+stream
+BT
+/F1 6 Tf
+52 750 Td
+(Drift Monitoring Study.) Tj
+0 -28 Td
+(An established retrieval baseline monitors embedding and corpus drift in production.) Tj
+0 -28 Td
+(Alert triage remains a standard retrieval operation for on-call engineers.) Tj
+0 -28 Td
+(An adaptive freshness budget for drift alerts was in the previously validated configuration.) Tj
+0 -28 Td
+(A standard retrieval operation connects selective refresh to sustained drift signals.) Tj
+0 -28 Td
+(A new benchmark result detects harmful corpus drift 31 percent earlier than weekly review.) Tj
+0 -28 Td
+(A second new benchmark result reduces false drift alerts by 24 percent across seasonal traffic.) Tj
+0 -28 Td
+(The deployment checklist repeats routine dashboard ownership guidance.) Tj
+0 -28 Td
+(The vendor pricing appendix lists monitoring packages without technical evidence.) Tj
+ET
+endstream
+endobj
+trailer
+<< /Root 1 0 R /Size 17 >>
+%%EOF

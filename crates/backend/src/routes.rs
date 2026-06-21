@@ -11,7 +11,13 @@ use axum::{
 use chrono::Utc;
 use uuid::Uuid;
 
-use crate::{analysis, models::*, pdf::extract_text_chunks, store::AppState};
+use crate::{
+    analysis,
+    canonical::{extract_canonical_text_model, generate_canonical_reading_units},
+    models::*,
+    pdf::{extract_sentence_candidates, extract_text_chunks},
+    store::AppState,
+};
 
 pub fn api_router(state: Arc<AppState>) -> Router {
     Router::new()
@@ -49,7 +55,38 @@ async fn upload_document(
 
     let pdf_bytes = pdf_bytes.ok_or_else(|| ApiError::bad_request("Missing PDF file field"))?;
     let (page_count, chunks) = extract_text_chunks(&pdf_bytes).map_err(ApiError::bad_request)?;
+    let sentence_candidates = extract_sentence_candidates(&chunks);
     let id = Uuid::new_v4();
+    let canonical_bytes = pdf_bytes.to_vec();
+    let canonical_result = tokio::task::spawn_blocking(move || {
+        let model = extract_canonical_text_model(&canonical_bytes, id)?;
+        if model.pages.len() != page_count {
+            anyhow::bail!(
+                "canonical PDF.js page count {} did not match legacy page count {}",
+                model.pages.len(),
+                page_count
+            );
+        }
+        let candidates = generate_canonical_reading_units(&model)?;
+        Ok::<_, anyhow::Error>((model, candidates))
+    })
+    .await;
+    let (canonical_text_model, canonical_sentence_candidates, extraction_status) =
+        match canonical_result {
+            Ok(Ok((model, candidates))) => (
+                Some(model),
+                candidates,
+                "canonical_text_extracted".to_owned(),
+            ),
+            Ok(Err(error)) => {
+                tracing::warn!(%error, "canonical PDF.js extraction failed; using legacy analysis path");
+                (None, Vec::new(), "legacy_text_fallback".to_owned())
+            }
+            Err(error) => {
+                tracing::warn!(%error, "canonical PDF.js extraction task failed; using legacy analysis path");
+                (None, Vec::new(), "legacy_text_fallback".to_owned())
+            }
+        };
     let concepts = analysis::generate_concepts(state.ai().as_ref(), &chunks)
         .await
         .map_err(ApiError::internal)?;
@@ -62,17 +99,23 @@ async fn upload_document(
             page_count,
             pdf_bytes: pdf_bytes.to_vec(),
             chunks,
+            sentence_candidates,
+            canonical_text_model,
+            canonical_sentence_candidates,
             concepts,
             baseline: None,
             quests: Vec::new(),
             annotations: Vec::new(),
+            reading_anchors: Vec::new(),
+            canonical_sentence_annotations: Vec::new(),
+            delta_eligibility_diagnostics: Default::default(),
         })
         .await;
 
     Ok(Json(UploadResponse {
         document_id: id,
         page_count,
-        extraction_status: "text_extracted".to_owned(),
+        extraction_status,
     }))
 }
 
@@ -126,9 +169,17 @@ async fn analyze(
         .clone()
         .ok_or_else(|| ApiError::bad_request("Baseline must be set before analysis"))?;
 
-    let (quests, annotations) = analysis::analyze_document(
+    let (
+        quests,
+        annotations,
+        reading_anchors,
+        canonical_sentence_annotations,
+        delta_eligibility_diagnostics,
+    ) = analysis::analyze_document(
         state.ai().as_ref(),
         &session.chunks,
+        &session.canonical_sentence_candidates,
+        &session.sentence_candidates,
         &session.concepts,
         &baseline,
     )
@@ -139,6 +190,9 @@ async fn analyze(
         .update(id, |session| {
             session.quests = quests.clone();
             session.annotations = annotations.clone();
+            session.reading_anchors = reading_anchors.clone();
+            session.canonical_sentence_annotations = canonical_sentence_annotations.clone();
+            session.delta_eligibility_diagnostics = delta_eligibility_diagnostics.clone();
         })
         .await
         .ok_or(ApiError::not_found())?;
@@ -146,6 +200,9 @@ async fn analyze(
     Ok(Json(AnalyzeResponse {
         quests,
         chunk_annotations: annotations,
+        reading_anchors,
+        canonical_sentence_annotations,
+        delta_eligibility_diagnostics,
     }))
 }
 
@@ -159,10 +216,15 @@ async fn get_reader(
         filename: session.filename,
         page_count: session.page_count,
         chunks: session.chunks,
+        sentence_candidates: session.sentence_candidates,
+        canonical_text_model_available: session.canonical_text_model.is_some(),
         concepts: session.concepts,
         baseline: session.baseline,
         quests: session.quests,
         chunk_annotations: session.annotations,
+        reading_anchors: session.reading_anchors,
+        canonical_sentence_annotations: session.canonical_sentence_annotations,
+        delta_eligibility_diagnostics: session.delta_eligibility_diagnostics,
     }))
 }
 

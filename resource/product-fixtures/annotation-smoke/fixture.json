@@ -1,0 +1,9 @@
+{
+  "baseline_name": "annotation_smoke_baseline",
+  "domain": "TODO",
+  "fixture_name": "annotation-smoke",
+  "fixture_type": "realistic",
+  "notes": "Complete baseline.json and human gold labels before using this fixture as a quality gate.",
+  "source": "real_pdf",
+  "thresholds": {}
+}

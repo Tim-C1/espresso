@@ -1,5 +1,7 @@
 mod ai;
 mod analysis;
+mod canonical;
+mod delta_policy;
 mod models;
 mod pdf;
 mod routes;

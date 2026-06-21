@@ -1,0 +1,2258 @@
+{
+  "schema_version": "1.0",
+  "fixture": "annotation-smoke",
+  "baseline_source": "baseline.template.json",
+  "candidates": [
+    {
+      "sentence_id": "cp1s1",
+      "page": 1,
+      "candidate_kind": "metadata",
+      "text": "Bitcoin: A Peer-to-Peer Electronic Cash System Satoshi Nakamoto satoshin@gmx.com www.bitcoin.org Abstract.",
+      "normalized_text": "Bitcoin: A Peer-to-Peer Electronic Cash System Satoshi Nakamoto satoshin@gmx.com www.bitcoin.org Abstract.",
+      "length": 106,
+      "item_ranges_present": true,
+      "tags": [
+        "multi_item_range"
+      ]
+    },
+    {
+      "sentence_id": "cp1s2",
+      "page": 1,
+      "candidate_kind": "body_sentence",
+      "text": "A purely peer-to-peer version of electronic cash would allow online payments to be sent directly from one party to another without going through a financial institution.",
+      "normalized_text": "A purely peer-to-peer version of electronic cash would allow online payments to be sent directly from one party to another without going through a financial institution.",
+      "length": 169,
+      "item_ranges_present": true,
+      "tags": [
+        "multi_item_range"
+      ]
+    },
+    {
+      "sentence_id": "cp1s3",
+      "page": 1,
+      "candidate_kind": "body_sentence",
+      "text": "Digital signatures provide part of the solution, but the main benefits are lost if a trusted third party is still required to prevent double-spending.",
+      "normalized_text": "Digital signatures provide part of the solution, but the main benefits are lost if a trusted third party is still required to prevent double-spending.",
+      "length": 150,
+      "item_ranges_present": true,
+      "tags": [
+        "multi_item_range"
+      ]
+    },
+    {
+      "sentence_id": "cp1s4",
+      "page": 1,
+      "candidate_kind": "body_sentence",
+      "text": "We propose a solution to the double-spending problem using a peer-to-peer network.",
+      "normalized_text": "We propose a solution to the double-spending problem using a peer-to-peer network.",
+      "length": 82,
+      "item_ranges_present": true,
+      "tags": []
+    },
+    {
+      "sentence_id": "cp1s5",
+      "page": 1,
+      "candidate_kind": "body_sentence",
+      "text": "The network timestamps transactions by hashing them into an ongoing chain of hash-based proof-of-work, forming a record that cannot be changed without redoing the proof-of-work.",
+      "normalized_text": "The network timestamps transactions by hashing them into an ongoing chain of hash-based proof-of-work, forming a record that cannot be changed without redoing the proof-of-work.",
+      "length": 177,
+      "item_ranges_present": true,
+      "tags": [
+        "multi_item_range"
+      ]
+    },
+    {
+      "sentence_id": "cp1s6",
+      "page": 1,
+      "candidate_kind": "body_sentence",
+      "text": "The longest chain not only serves as proof of the sequence of events witnessed, but proof that it came from the largest pool of CPU power.",
+      "normalized_text": "The longest chain not only serves as proof of the sequence of events witnessed, but proof that it came from the largest pool of CPU power.",
+      "length": 138,
+      "item_ranges_present": true,
+      "tags": [
+        "multi_item_range"
+      ]
+    },
+    {
+      "sentence_id": "cp1s7",
+      "page": 1,
+      "candidate_kind": "body_sentence",
+      "text": "As long as a majority of CPU power is controlled by nodes that are not cooperating to attack the network, they'll generate the longest chain and outpace attackers.",
+      "normalized_text": "As long as a majority of CPU power is controlled by nodes that are not cooperating to attack the network, they'll generate the longest chain and outpace attackers.",
+      "length": 163,
+      "item_ranges_present": true,
+      "tags": [
+        "multi_item_range"
+      ]
+    },
+    {
+      "sentence_id": "cp1s8",
+      "page": 1,
+      "candidate_kind": "body_sentence",
+      "text": "The network itself requires minimal structure.",
+      "normalized_text": "The network itself requires minimal structure.",
+      "length": 46,
+      "item_ranges_present": true,
+      "tags": [
+        "multi_item_range"
+      ]
+    },
+    {
+      "sentence_id": "cp1s9",
+      "page": 1,
+      "candidate_kind": "body_sentence",
+      "text": "Messages are broadcast on a best effort basis, and nodes can leave and rejoin the network at will, accepting the longest proof-of-work chain as proof of what happened while they were gone.",
+      "normalized_text": "Messages are broadcast on a best effort basis, and nodes can leave and rejoin the network at will, accepting the longest proof-of-work chain as proof of what happened while they were gone.",
+      "length": 188,
+      "item_ranges_present": true,
+      "tags": [
+        "multi_item_range"
+      ]
+    },
+    {
+      "sentence_id": "cp1s10",
+      "page": 1,
+      "candidate_kind": "heading",
+      "text": "1.",
+      "normalized_text": "1.",
+      "length": 2,
+      "item_ranges_present": true,
+      "tags": [
+        "very_short",
+        "contains_numeric_result"
+      ]
+    },
+    {
+      "sentence_id": "cp1s11",
+      "page": 1,
+      "candidate_kind": "body_sentence",
+      "text": "Introduction Commerce on the Internet has come to rely almost exclusively on financial institutions serving as trusted third parties to process electronic payments.",
+      "normalized_text": "Introduction Commerce on the Internet has come to rely almost exclusively on financial institutions serving as trusted third parties to process electronic payments.",
+      "length": 164,
+      "item_ranges_present": true,
+      "tags": [
+        "multi_item_range"
+      ]
+    },
+    {
+      "sentence_id": "cp1s12",
+      "page": 1,
+      "candidate_kind": "body_sentence",
+      "text": "While the system works well enough for most transactions, it still suffers from the inherent weaknesses of the trust based model.",
+      "normalized_text": "While the system works well enough for most transactions, it still suffers from the inherent weaknesses of the trust based model.",
+      "length": 129,
+      "item_ranges_present": true,
+      "tags": [
+        "multi_item_range"
+      ]
+    },
+    {
+      "sentence_id": "cp1s13",
+      "page": 1,
+      "candidate_kind": "body_sentence",
+      "text": "Completely non-reversible transactions are not really possible, since financial institutions cannot avoid mediating disputes.",
+      "normalized_text": "Completely non-reversible transactions are not really possible, since financial institutions cannot avoid mediating disputes.",
+      "length": 125,
+      "item_ranges_present": true,
+      "tags": [
+        "multi_item_range"
+      ]
+    },
+    {
+      "sentence_id": "cp1s14",
+      "page": 1,
+      "candidate_kind": "body_sentence",
+      "text": "The cost of mediation increases transaction costs, limiting the minimum practical transaction size and cutting off the possibility for small casual transactions, and there is a broader cost in the loss of ability to make non-reversible payments for non- reversible services.",
+      "normalized_text": "The cost of mediation increases transaction costs, limiting the minimum practical transaction size and cutting off the possibility for small casual transactions, and there is a broader cost in the loss of ability to make non-reversible payments for non- reversible services.",
+      "length": 274,
+      "item_ranges_present": true,
+      "tags": [
+        "multi_item_range"
+      ]
+    },
+    {
+      "sentence_id": "cp1s15",
+      "page": 1,
+      "candidate_kind": "body_sentence",
+      "text": "With the possibility of reversal, the need for trust spreads.",
+      "normalized_text": "With the possibility of reversal, the need for trust spreads.",
+      "length": 61,
+      "item_ranges_present": true,
+      "tags": []
+    },
+    {
+      "sentence_id": "cp1s16",
+      "page": 1,
+      "candidate_kind": "body_sentence",
+      "text": "Merchants must be wary of their customers, hassling them for more information than they would otherwise need.",
+      "normalized_text": "Merchants must be wary of their customers, hassling them for more information than they would otherwise need.",
+      "length": 109,
+      "item_ranges_present": true,
+      "tags": [
+        "multi_item_range"
+      ]
+    },
+    {
+      "sentence_id": "cp1s17",
+      "page": 1,
+      "candidate_kind": "body_sentence",
+      "text": "A certain percentage of fraud is accepted as unavoidable.",
+      "normalized_text": "A certain percentage of fraud is accepted as unavoidable.",
+      "length": 57,
+      "item_ranges_present": true,
+      "tags": []
+    },
+    {
+      "sentence_id": "cp1s18",
+      "page": 1,
+      "candidate_kind": "body_sentence",
+      "text": "These costs and payment uncertainties can be avoided in person by using physical currency, but no mechanism exists to make payments over a communications channel without a trusted party.",
+      "normalized_text": "These costs and payment uncertainties can be avoided in person by using physical currency, but no mechanism exists to make payments over a communications channel without a trusted party.",
+      "length": 186,
+      "item_ranges_present": true,
+      "tags": [
+        "multi_item_range"
+      ]
+    },
+    {
+      "sentence_id": "cp1s19",
+      "page": 1,
+      "candidate_kind": "body_sentence",
+      "text": "What is needed is an electronic payment system based on cryptographic proof instead of trust, allowing any two willing parties to transact directly with each other without the need for a trusted third party.",
+      "normalized_text": "What is needed is an electronic payment system based on cryptographic proof instead of trust, allowing any two willing parties to transact directly with each other without the need for a trusted third party.",
+      "length": 207,
+      "item_ranges_present": true,
+      "tags": [
+        "multi_item_range"
+      ]
+    },
+    {
+      "sentence_id": "cp1s20",
+      "page": 1,
+      "candidate_kind": "body_sentence",
+      "text": "Transactions that are computationally impractical to reverse would protect sellers from fraud, and routine escrow mechanisms could easily be implemented to protect buyers.",
+      "normalized_text": "Transactions that are computationally impractical to reverse would protect sellers from fraud, and routine escrow mechanisms could easily be implemented to protect buyers.",
+      "length": 171,
+      "item_ranges_present": true,
+      "tags": [
+        "multi_item_range"
+      ]
+    },
+    {
+      "sentence_id": "cp1s21",
+      "page": 1,
+      "candidate_kind": "body_sentence",
+      "text": "In this paper, we propose a solution to the double-spending problem using a peer-to-peer distributed timestamp server to generate computational proof of the chronological order of transactions.",
+      "normalized_text": "In this paper, we propose a solution to the double-spending problem using a peer-to-peer distributed timestamp server to generate computational proof of the chronological order of transactions.",
+      "length": 193,
+      "item_ranges_present": true,
+      "tags": [
+        "multi_item_range"
+      ]
+    },
+    {
+      "sentence_id": "cp1s22",
+      "page": 1,
+      "candidate_kind": "body_sentence",
+      "text": "The system is secure as long as honest nodes collectively control more CPU power than any cooperating group of attacker nodes.",
+      "normalized_text": "The system is secure as long as honest nodes collectively control more CPU power than any cooperating group of attacker nodes.",
+      "length": 126,
+      "item_ranges_present": true,
+      "tags": [
+        "multi_item_range"
+      ]
+    },
+    {
+      "sentence_id": "cp1s23",
+      "page": 1,
+      "candidate_kind": "short_fragment",
+      "text": "1",
+      "normalized_text": "1",
+      "length": 1,
+      "item_ranges_present": true,
+      "tags": [
+        "very_short",
+        "contains_numeric_result"
+      ]
+    },
+    {
+      "sentence_id": "cp2s1",
+      "page": 2,
+      "candidate_kind": "heading",
+      "text": "2.",
+      "normalized_text": "2.",
+      "length": 2,
+      "item_ranges_present": true,
+      "tags": [
+        "very_short",
+        "contains_numeric_result"
+      ]
+    },
+    {
+      "sentence_id": "cp2s2",
+      "page": 2,
+      "candidate_kind": "body_sentence",
+      "text": "Transactions We define an electronic coin as a chain of digital signatures.",
+      "normalized_text": "Transactions We define an electronic coin as a chain of digital signatures.",
+      "length": 75,
+      "item_ranges_present": true,
+      "tags": [
+        "multi_item_range"
+      ]
+    },
+    {
+      "sentence_id": "cp2s3",
+      "page": 2,
+      "candidate_kind": "body_sentence",
+      "text": "Each owner transfers the coin to the next by digitally signing a hash of the previous transaction and the public key of the next owner and adding these to the end of the coin.",
+      "normalized_text": "Each owner transfers the coin to the next by digitally signing a hash of the previous transaction and the public key of the next owner and adding these to the end of the coin.",
+      "length": 175,
+      "item_ranges_present": true,
+      "tags": [
+        "multi_item_range"
+      ]
+    },
+    {
+      "sentence_id": "cp2s4",
+      "page": 2,
+      "candidate_kind": "body_sentence",
+      "text": "A payee can verify the signatures to verify the chain of ownership.",
+      "normalized_text": "A payee can verify the signatures to verify the chain of ownership.",
+      "length": 67,
+      "item_ranges_present": true,
+      "tags": [
+        "multi_item_range"
+      ]
+    },
+    {
+      "sentence_id": "cp2s5",
+      "page": 2,
+      "candidate_kind": "body_sentence",
+      "text": "The problem of course is the payee can't verify that one of the owners did not double-spend the coin.",
+      "normalized_text": "The problem of course is the payee can't verify that one of the owners did not double-spend the coin.",
+      "length": 101,
+      "item_ranges_present": true,
+      "tags": [
+        "multi_item_range"
+      ]
+    },
+    {
+      "sentence_id": "cp2s6",
+      "page": 2,
+      "candidate_kind": "body_sentence",
+      "text": "A common solution is to introduce a trusted central authority, or mint, that checks every transaction for double spending.",
+      "normalized_text": "A common solution is to introduce a trusted central authority, or mint, that checks every transaction for double spending.",
+      "length": 122,
+      "item_ranges_present": true,
+      "tags": [
+        "multi_item_range"
+      ]
+    },
+    {
+      "sentence_id": "cp2s7",
+      "page": 2,
+      "candidate_kind": "body_sentence",
+      "text": "After each transaction, the coin must be returned to the mint to issue a new coin, and only coins issued directly from the mint are trusted not to be double-spent.",
+      "normalized_text": "After each transaction, the coin must be returned to the mint to issue a new coin, and only coins issued directly from the mint are trusted not to be double-spent.",
+      "length": 163,
+      "item_ranges_present": true,
+      "tags": [
+        "multi_item_range"
+      ]
+    },
+    {
+      "sentence_id": "cp2s8",
+      "page": 2,
+      "candidate_kind": "body_sentence",
+      "text": "The problem with this solution is that the fate of the entire money system depends on the company running the mint, with every transaction having to go through them, just like a bank.",
+      "normalized_text": "The problem with this solution is that the fate of the entire money system depends on the company running the mint, with every transaction having to go through them, just like a bank.",
+      "length": 183,
+      "item_ranges_present": true,
+      "tags": [
+        "multi_item_range"
+      ]
+    },
+    {
+      "sentence_id": "cp2s9",
+      "page": 2,
+      "candidate_kind": "body_sentence",
+      "text": "We need a way for the payee to know that the previous owners did not sign any earlier transactions.",
+      "normalized_text": "We need a way for the payee to know that the previous owners did not sign any earlier transactions.",
+      "length": 99,
+      "item_ranges_present": true,
+      "tags": [
+        "multi_item_range"
+      ]
+    },
+    {
+      "sentence_id": "cp2s10",
+      "page": 2,
+      "candidate_kind": "body_sentence",
+      "text": "For our purposes, the earliest transaction is the one that counts, so we don't care about later attempts to double-spend.",
+      "normalized_text": "For our purposes, the earliest transaction is the one that counts, so we don't care about later attempts to double-spend.",
+      "length": 121,
+      "item_ranges_present": true,
+      "tags": [
+        "multi_item_range"
+      ]
+    },
+    {
+      "sentence_id": "cp2s11",
+      "page": 2,
+      "candidate_kind": "body_sentence",
+      "text": "The only way to confirm the absence of a transaction is to be aware of all transactions.",
+      "normalized_text": "The only way to confirm the absence of a transaction is to be aware of all transactions.",
+      "length": 88,
+      "item_ranges_present": true,
+      "tags": [
+        "multi_item_range"
+      ]
+    },
+    {
+      "sentence_id": "cp2s12",
+      "page": 2,
+      "candidate_kind": "body_sentence",
+      "text": "In the mint based model, the mint was aware of all transactions and decided which arrived first.",
+      "normalized_text": "In the mint based model, the mint was aware of all transactions and decided which arrived first.",
+      "length": 96,
+      "item_ranges_present": true,
+      "tags": [
+        "multi_item_range"
+      ]
+    },
+    {
+      "sentence_id": "cp2s13",
+      "page": 2,
+      "candidate_kind": "body_sentence",
+      "text": "To accomplish this without a trusted party, transactions must be publicly announced [1], and we need a system for participants to agree on a single history of the order in which they were received.",
+      "normalized_text": "To accomplish this without a trusted party, transactions must be publicly announced [1], and we need a system for participants to agree on a single history of the order in which they were received.",
+      "length": 197,
+      "item_ranges_present": true,
+      "tags": [
+        "contains_numeric_result",
+        "multi_item_range"
+      ]
+    },
+    {
+      "sentence_id": "cp2s14",
+      "page": 2,
+      "candidate_kind": "body_sentence",
+      "text": "The payee needs proof that at the time of each transaction, the majority of nodes agreed it was the first received.",
+      "normalized_text": "The payee needs proof that at the time of each transaction, the majority of nodes agreed it was the first received.",
+      "length": 115,
+      "item_ranges_present": true,
+      "tags": [
+        "multi_item_range"
+      ]
+    },
+    {
+      "sentence_id": "cp2s15",
+      "page": 2,
+      "candidate_kind": "heading",
+      "text": "3.",
+      "normalized_text": "3.",
+      "length": 2,
+      "item_ranges_present": true,
+      "tags": [
+        "very_short",
+        "contains_numeric_result"
+      ]
+    },
+    {
+      "sentence_id": "cp2s16",
+      "page": 2,
+      "candidate_kind": "body_sentence",
+      "text": "Timestamp Server The solution we propose begins with a timestamp server.",
+      "normalized_text": "Timestamp Server The solution we propose begins with a timestamp server.",
+      "length": 72,
+      "item_ranges_present": true,
+      "tags": [
+        "multi_item_range"
+      ]
+    },
+    {
+      "sentence_id": "cp2s17",
+      "page": 2,
+      "candidate_kind": "body_sentence",
+      "text": "A timestamp server works by taking a hash of a block of items to be timestamped and widely publishing the hash, such as in a newspaper or Usenet post [2-5].",
+      "normalized_text": "A timestamp server works by taking a hash of a block of items to be timestamped and widely publishing the hash, such as in a newspaper or Usenet post [2-5].",
+      "length": 156,
+      "item_ranges_present": true,
+      "tags": [
+        "contains_numeric_result",
+        "multi_item_range"
+      ]
+    },
+    {
+      "sentence_id": "cp2s18",
+      "page": 2,
+      "candidate_kind": "body_sentence",
+      "text": "The timestamp proves that the data must have existed at the time, obviously, in order to get into the hash.",
+      "normalized_text": "The timestamp proves that the data must have existed at the time, obviously, in order to get into the hash.",
+      "length": 107,
+      "item_ranges_present": true,
+      "tags": [
+        "multi_item_range"
+      ]
+    },
+    {
+      "sentence_id": "cp2s19",
+      "page": 2,
+      "candidate_kind": "body_sentence",
+      "text": "Each timestamp includes the previous timestamp in its hash, forming a chain, with each additional timestamp reinforcing the ones before it.",
+      "normalized_text": "Each timestamp includes the previous timestamp in its hash, forming a chain, with each additional timestamp reinforcing the ones before it.",
+      "length": 139,
+      "item_ranges_present": true,
+      "tags": [
+        "multi_item_range"
+      ]
+    },
+    {
+      "sentence_id": "cp2s20",
+      "page": 2,
+      "candidate_kind": "short_fragment",
+      "text": "2 Block Item Item ...",
+      "normalized_text": "2 Block Item Item ...",
+      "length": 21,
+      "item_ranges_present": true,
+      "tags": [
+        "very_short",
+        "contains_numeric_result",
+        "multi_item_range"
+      ]
+    },
+    {
+      "sentence_id": "cp2s21",
+      "page": 2,
+      "candidate_kind": "short_fragment",
+      "text": "Hash Block Item Item ...",
+      "normalized_text": "Hash Block Item Item ...",
+      "length": 24,
+      "item_ranges_present": true,
+      "tags": [
+        "very_short",
+        "multi_item_range"
+      ]
+    },
+    {
+      "sentence_id": "cp2s22",
+      "page": 2,
+      "candidate_kind": "body_sentence",
+      "text": "Hash Transaction Owner 1's Public Key Owner 0's Signature Hash Transaction Owner 2's Public Key Owner 1's Signature Hash Verify Transaction Owner 3's Public Key Owner 2's Signature Hash Verify Owner 2's Private Key Owner 1's Private Key Sign Sign Owner 3's Private Key",
+      "normalized_text": "Hash Transaction Owner 1's Public Key Owner 0's Signature Hash Transaction Owner 2's Public Key Owner 1's Signature Hash Verify Transaction Owner 3's Public Key Owner 2's Signature Hash Verify Owner 2's Private Key Owner 1's Private Key Sign Sign Owner 3's Private Key",
+      "length": 268,
+      "item_ranges_present": true,
+      "tags": [
+        "contains_numeric_result",
+        "multi_item_range"
+      ]
+    },
+    {
+      "sentence_id": "cp3s1",
+      "page": 3,
+      "candidate_kind": "heading",
+      "text": "4.",
+      "normalized_text": "4.",
+      "length": 2,
+      "item_ranges_present": true,
+      "tags": [
+        "very_short",
+        "contains_numeric_result"
+      ]
+    },
+    {
+      "sentence_id": "cp3s2",
+      "page": 3,
+      "candidate_kind": "body_sentence",
+      "text": "Proof-of-Work To implement a distributed timestamp server on a peer-to-peer basis, we will need to use a proof- of-work system similar to Adam Back's Hashcash [6], rather than newspaper or Usenet posts.",
+      "normalized_text": "Proof-of-Work To implement a distributed timestamp server on a peer-to-peer basis, we will need to use a proof- of-work system similar to Adam Back's Hashcash [6], rather than newspaper or Usenet posts.",
+      "length": 202,
+      "item_ranges_present": true,
+      "tags": [
+        "contains_numeric_result",
+        "multi_item_range"
+      ]
+    },
+    {
+      "sentence_id": "cp3s3",
+      "page": 3,
+      "candidate_kind": "body_sentence",
+      "text": "The proof-of-work involves scanning for a value that when hashed, such as with SHA-256, the hash begins with a number of zero bits.",
+      "normalized_text": "The proof-of-work involves scanning for a value that when hashed, such as with SHA-256, the hash begins with a number of zero bits.",
+      "length": 131,
+      "item_ranges_present": true,
+      "tags": [
+        "contains_numeric_result",
+        "multi_item_range"
+      ]
+    },
+    {
+      "sentence_id": "cp3s4",
+      "page": 3,
+      "candidate_kind": "body_sentence",
+      "text": "The average work required is exponential in the number of zero bits required and can be verified by executing a single hash.",
+      "normalized_text": "The average work required is exponential in the number of zero bits required and can be verified by executing a single hash.",
+      "length": 124,
+      "item_ranges_present": true,
+      "tags": [
+        "multi_item_range"
+      ]
+    },
+    {
+      "sentence_id": "cp3s5",
+      "page": 3,
+      "candidate_kind": "body_sentence",
+      "text": "For our timestamp network, we implement the proof-of-work by incrementing a nonce in the block until a value is found that gives the block's hash the required zero bits.",
+      "normalized_text": "For our timestamp network, we implement the proof-of-work by incrementing a nonce in the block until a value is found that gives the block's hash the required zero bits.",
+      "length": 169,
+      "item_ranges_present": true,
+      "tags": [
+        "multi_item_range"
+      ]
+    },
+    {
+      "sentence_id": "cp3s6",
+      "page": 3,
+      "candidate_kind": "body_sentence",
+      "text": "Once the CPU effort has been expended to make it satisfy the proof-of-work, the block cannot be changed without redoing the work.",
+      "normalized_text": "Once the CPU effort has been expended to make it satisfy the proof-of-work, the block cannot be changed without redoing the work.",
+      "length": 129,
+      "item_ranges_present": true,
+      "tags": [
+        "multi_item_range"
+      ]
+    },
+    {
+      "sentence_id": "cp3s7",
+      "page": 3,
+      "candidate_kind": "body_sentence",
+      "text": "As later blocks are chained after it, the work to change the block would include redoing all the blocks after it.",
+      "normalized_text": "As later blocks are chained after it, the work to change the block would include redoing all the blocks after it.",
+      "length": 113,
+      "item_ranges_present": true,
+      "tags": [
+        "multi_item_range"
+      ]
+    },
+    {
+      "sentence_id": "cp3s8",
+      "page": 3,
+      "candidate_kind": "body_sentence",
+      "text": "The proof-of-work also solves the problem of determining representation in majority decision making.",
+      "normalized_text": "The proof-of-work also solves the problem of determining representation in majority decision making.",
+      "length": 100,
+      "item_ranges_present": true,
+      "tags": [
+        "multi_item_range"
+      ]
+    },
+    {
+      "sentence_id": "cp3s9",
+      "page": 3,
+      "candidate_kind": "body_sentence",
+      "text": "If the majority were based on one-IP-address-one-vote, it could be subverted by anyone able to allocate many IPs.",
+      "normalized_text": "If the majority were based on one-IP-address-one-vote, it could be subverted by anyone able to allocate many IPs.",
+      "length": 113,
+      "item_ranges_present": true,
+      "tags": [
+        "multi_item_range"
+      ]
+    },
+    {
+      "sentence_id": "cp3s10",
+      "page": 3,
+      "candidate_kind": "body_sentence",
+      "text": "Proof-of-work is essentially one-CPU-one-vote.",
+      "normalized_text": "Proof-of-work is essentially one-CPU-one-vote.",
+      "length": 46,
+      "item_ranges_present": true,
+      "tags": []
+    },
+    {
+      "sentence_id": "cp3s11",
+      "page": 3,
+      "candidate_kind": "body_sentence",
+      "text": "The majority decision is represented by the longest chain, which has the greatest proof-of-work effort invested in it.",
+      "normalized_text": "The majority decision is represented by the longest chain, which has the greatest proof-of-work effort invested in it.",
+      "length": 118,
+      "item_ranges_present": true,
+      "tags": [
+        "multi_item_range"
+      ]
+    },
+    {
+      "sentence_id": "cp3s12",
+      "page": 3,
+      "candidate_kind": "body_sentence",
+      "text": "If a majority of CPU power is controlled by honest nodes, the honest chain will grow the fastest and outpace any competing chains.",
+      "normalized_text": "If a majority of CPU power is controlled by honest nodes, the honest chain will grow the fastest and outpace any competing chains.",
+      "length": 130,
+      "item_ranges_present": true,
+      "tags": [
+        "multi_item_range"
+      ]
+    },
+    {
+      "sentence_id": "cp3s13",
+      "page": 3,
+      "candidate_kind": "body_sentence",
+      "text": "To modify a past block, an attacker would have to redo the proof-of-work of the block and all blocks after it and then catch up with and surpass the work of the honest nodes.",
+      "normalized_text": "To modify a past block, an attacker would have to redo the proof-of-work of the block and all blocks after it and then catch up with and surpass the work of the honest nodes.",
+      "length": 174,
+      "item_ranges_present": true,
+      "tags": [
+        "multi_item_range"
+      ]
+    },
+    {
+      "sentence_id": "cp3s14",
+      "page": 3,
+      "candidate_kind": "body_sentence",
+      "text": "We will show later that the probability of a slower attacker catching up diminishes exponentially as subsequent blocks are added.",
+      "normalized_text": "We will show later that the probability of a slower attacker catching up diminishes exponentially as subsequent blocks are added.",
+      "length": 129,
+      "item_ranges_present": true,
+      "tags": [
+        "multi_item_range"
+      ]
+    },
+    {
+      "sentence_id": "cp3s15",
+      "page": 3,
+      "candidate_kind": "body_sentence",
+      "text": "To compensate for increasing hardware speed and varying interest in running nodes over time, the proof-of-work difficulty is determined by a moving average targeting an average number of blocks per hour.",
+      "normalized_text": "To compensate for increasing hardware speed and varying interest in running nodes over time, the proof-of-work difficulty is determined by a moving average targeting an average number of blocks per hour.",
+      "length": 203,
+      "item_ranges_present": true,
+      "tags": [
+        "multi_item_range"
+      ]
+    },
+    {
+      "sentence_id": "cp3s16",
+      "page": 3,
+      "candidate_kind": "body_sentence",
+      "text": "If they're generated too fast, the difficulty increases.",
+      "normalized_text": "If they're generated too fast, the difficulty increases.",
+      "length": 56,
+      "item_ranges_present": true,
+      "tags": []
+    },
+    {
+      "sentence_id": "cp3s17",
+      "page": 3,
+      "candidate_kind": "heading",
+      "text": "5.",
+      "normalized_text": "5.",
+      "length": 2,
+      "item_ranges_present": true,
+      "tags": [
+        "very_short",
+        "contains_numeric_result"
+      ]
+    },
+    {
+      "sentence_id": "cp3s18",
+      "page": 3,
+      "candidate_kind": "body_sentence",
+      "text": "Network The steps to run the network are as follows: 1) New transactions are broadcast to all nodes.",
+      "normalized_text": "Network The steps to run the network are as follows: 1) New transactions are broadcast to all nodes.",
+      "length": 100,
+      "item_ranges_present": true,
+      "tags": [
+        "contains_numeric_result",
+        "multi_item_range"
+      ]
+    },
+    {
+      "sentence_id": "cp3s19",
+      "page": 3,
+      "candidate_kind": "body_sentence",
+      "text": "2) Each node collects new transactions into a block.",
+      "normalized_text": "2) Each node collects new transactions into a block.",
+      "length": 52,
+      "item_ranges_present": true,
+      "tags": [
+        "contains_numeric_result",
+        "multi_item_range"
+      ]
+    },
+    {
+      "sentence_id": "cp3s20",
+      "page": 3,
+      "candidate_kind": "body_sentence",
+      "text": "3) Each node works on finding a difficult proof-of-work for its block.",
+      "normalized_text": "3) Each node works on finding a difficult proof-of-work for its block.",
+      "length": 70,
+      "item_ranges_present": true,
+      "tags": [
+        "contains_numeric_result",
+        "multi_item_range"
+      ]
+    },
+    {
+      "sentence_id": "cp3s21",
+      "page": 3,
+      "candidate_kind": "body_sentence",
+      "text": "4) When a node finds a proof-of-work, it broadcasts the block to all nodes.",
+      "normalized_text": "4) When a node finds a proof-of-work, it broadcasts the block to all nodes.",
+      "length": 75,
+      "item_ranges_present": true,
+      "tags": [
+        "contains_numeric_result",
+        "multi_item_range"
+      ]
+    },
+    {
+      "sentence_id": "cp3s22",
+      "page": 3,
+      "candidate_kind": "body_sentence",
+      "text": "5) Nodes accept the block only if all transactions in it are valid and not already spent.",
+      "normalized_text": "5) Nodes accept the block only if all transactions in it are valid and not already spent.",
+      "length": 89,
+      "item_ranges_present": true,
+      "tags": [
+        "contains_numeric_result",
+        "multi_item_range"
+      ]
+    },
+    {
+      "sentence_id": "cp3s23",
+      "page": 3,
+      "candidate_kind": "body_sentence",
+      "text": "6) Nodes express their acceptance of the block by working on creating the next block in the chain, using the hash of the accepted block as the previous hash.",
+      "normalized_text": "6) Nodes express their acceptance of the block by working on creating the next block in the chain, using the hash of the accepted block as the previous hash.",
+      "length": 157,
+      "item_ranges_present": true,
+      "tags": [
+        "contains_numeric_result",
+        "multi_item_range"
+      ]
+    },
+    {
+      "sentence_id": "cp3s24",
+      "page": 3,
+      "candidate_kind": "body_sentence",
+      "text": "Nodes always consider the longest chain to be the correct one and will keep working on extending it.",
+      "normalized_text": "Nodes always consider the longest chain to be the correct one and will keep working on extending it.",
+      "length": 100,
+      "item_ranges_present": true,
+      "tags": [
+        "multi_item_range"
+      ]
+    },
+    {
+      "sentence_id": "cp3s25",
+      "page": 3,
+      "candidate_kind": "body_sentence",
+      "text": "If two nodes broadcast different versions of the next block simultaneously, some nodes may receive one or the other first.",
+      "normalized_text": "If two nodes broadcast different versions of the next block simultaneously, some nodes may receive one or the other first.",
+      "length": 122,
+      "item_ranges_present": true,
+      "tags": [
+        "multi_item_range"
+      ]
+    },
+    {
+      "sentence_id": "cp3s26",
+      "page": 3,
+      "candidate_kind": "body_sentence",
+      "text": "In that case, they work on the first one they received, but save the other branch in case it becomes longer.",
+      "normalized_text": "In that case, they work on the first one they received, but save the other branch in case it becomes longer.",
+      "length": 108,
+      "item_ranges_present": true,
+      "tags": [
+        "multi_item_range"
+      ]
+    },
+    {
+      "sentence_id": "cp3s27",
+      "page": 3,
+      "candidate_kind": "body_sentence",
+      "text": "The tie will be broken when the next proof- of-work is found and one branch becomes longer; the nodes that were working on the other branch will then switch to the longer one.",
+      "normalized_text": "The tie will be broken when the next proof- of-work is found and one branch becomes longer; the nodes that were working on the other branch will then switch to the longer one.",
+      "length": 175,
+      "item_ranges_present": true,
+      "tags": [
+        "multi_item_range"
+      ]
+    },
+    {
+      "sentence_id": "cp3s28",
+      "page": 3,
+      "candidate_kind": "body_sentence",
+      "text": "3 Block Prev Hash Nonce Tx Tx ...",
+      "normalized_text": "3 Block Prev Hash Nonce Tx Tx ...",
+      "length": 33,
+      "item_ranges_present": true,
+      "tags": [
+        "contains_numeric_result",
+        "multi_item_range"
+      ]
+    },
+    {
+      "sentence_id": "cp3s29",
+      "page": 3,
+      "candidate_kind": "body_sentence",
+      "text": "Block Prev Hash Nonce Tx Tx ...",
+      "normalized_text": "Block Prev Hash Nonce Tx Tx ...",
+      "length": 31,
+      "item_ranges_present": true,
+      "tags": [
+        "multi_item_range"
+      ]
+    },
+    {
+      "sentence_id": "cp4s1",
+      "page": 4,
+      "candidate_kind": "body_sentence",
+      "text": "New transaction broadcasts do not necessarily need to reach all nodes.",
+      "normalized_text": "New transaction broadcasts do not necessarily need to reach all nodes.",
+      "length": 70,
+      "item_ranges_present": true,
+      "tags": []
+    },
+    {
+      "sentence_id": "cp4s2",
+      "page": 4,
+      "candidate_kind": "body_sentence",
+      "text": "As long as they reach many nodes, they will get into a block before long.",
+      "normalized_text": "As long as they reach many nodes, they will get into a block before long.",
+      "length": 73,
+      "item_ranges_present": true,
+      "tags": [
+        "multi_item_range"
+      ]
+    },
+    {
+      "sentence_id": "cp4s3",
+      "page": 4,
+      "candidate_kind": "body_sentence",
+      "text": "Block broadcasts are also tolerant of dropped messages.",
+      "normalized_text": "Block broadcasts are also tolerant of dropped messages.",
+      "length": 55,
+      "item_ranges_present": true,
+      "tags": [
+        "multi_item_range"
+      ]
+    },
+    {
+      "sentence_id": "cp4s4",
+      "page": 4,
+      "candidate_kind": "body_sentence",
+      "text": "If a node does not receive a block, it will request it when it receives the next block and realizes it missed one.",
+      "normalized_text": "If a node does not receive a block, it will request it when it receives the next block and realizes it missed one.",
+      "length": 114,
+      "item_ranges_present": true,
+      "tags": [
+        "multi_item_range"
+      ]
+    },
+    {
+      "sentence_id": "cp4s5",
+      "page": 4,
+      "candidate_kind": "heading",
+      "text": "6.",
+      "normalized_text": "6.",
+      "length": 2,
+      "item_ranges_present": true,
+      "tags": [
+        "very_short",
+        "contains_numeric_result"
+      ]
+    },
+    {
+      "sentence_id": "cp4s6",
+      "page": 4,
+      "candidate_kind": "body_sentence",
+      "text": "Incentive By convention, the first transaction in a block is a special transaction that starts a new coin owned by the creator of the block.",
+      "normalized_text": "Incentive By convention, the first transaction in a block is a special transaction that starts a new coin owned by the creator of the block.",
+      "length": 140,
+      "item_ranges_present": true,
+      "tags": [
+        "multi_item_range"
+      ]
+    },
+    {
+      "sentence_id": "cp4s7",
+      "page": 4,
+      "candidate_kind": "body_sentence",
+      "text": "This adds an incentive for nodes to support the network, and provides a way to initially distribute coins into circulation, since there is no central authority to issue them.",
+      "normalized_text": "This adds an incentive for nodes to support the network, and provides a way to initially distribute coins into circulation, since there is no central authority to issue them.",
+      "length": 174,
+      "item_ranges_present": true,
+      "tags": [
+        "multi_item_range"
+      ]
+    },
+    {
+      "sentence_id": "cp4s8",
+      "page": 4,
+      "candidate_kind": "body_sentence",
+      "text": "The steady addition of a constant of amount of new coins is analogous to gold miners expending resources to add gold to circulation.",
+      "normalized_text": "The steady addition of a constant of amount of new coins is analogous to gold miners expending resources to add gold to circulation.",
+      "length": 132,
+      "item_ranges_present": true,
+      "tags": [
+        "multi_item_range"
+      ]
+    },
+    {
+      "sentence_id": "cp4s9",
+      "page": 4,
+      "candidate_kind": "body_sentence",
+      "text": "In our case, it is CPU time and electricity that is expended.",
+      "normalized_text": "In our case, it is CPU time and electricity that is expended.",
+      "length": 61,
+      "item_ranges_present": true,
+      "tags": []
+    },
+    {
+      "sentence_id": "cp4s10",
+      "page": 4,
+      "candidate_kind": "body_sentence",
+      "text": "The incentive can also be funded with transaction fees.",
+      "normalized_text": "The incentive can also be funded with transaction fees.",
+      "length": 55,
+      "item_ranges_present": true,
+      "tags": []
+    },
+    {
+      "sentence_id": "cp4s11",
+      "page": 4,
+      "candidate_kind": "body_sentence",
+      "text": "If the output value of a transaction is less than its input value, the difference is a transaction fee that is added to the incentive value of the block containing the transaction.",
+      "normalized_text": "If the output value of a transaction is less than its input value, the difference is a transaction fee that is added to the incentive value of the block containing the transaction.",
+      "length": 180,
+      "item_ranges_present": true,
+      "tags": [
+        "multi_item_range"
+      ]
+    },
+    {
+      "sentence_id": "cp4s12",
+      "page": 4,
+      "candidate_kind": "body_sentence",
+      "text": "Once a predetermined number of coins have entered circulation, the incentive can transition entirely to transaction fees and be completely inflation free.",
+      "normalized_text": "Once a predetermined number of coins have entered circulation, the incentive can transition entirely to transaction fees and be completely inflation free.",
+      "length": 154,
+      "item_ranges_present": true,
+      "tags": [
+        "multi_item_range"
+      ]
+    },
+    {
+      "sentence_id": "cp4s13",
+      "page": 4,
+      "candidate_kind": "body_sentence",
+      "text": "The incentive may help encourage nodes to stay honest.",
+      "normalized_text": "The incentive may help encourage nodes to stay honest.",
+      "length": 54,
+      "item_ranges_present": true,
+      "tags": []
+    },
+    {
+      "sentence_id": "cp4s14",
+      "page": 4,
+      "candidate_kind": "body_sentence",
+      "text": "If a greedy attacker is able to assemble more CPU power than all the honest nodes, he would have to choose between using it to defraud people by stealing back his payments, or using it to generate new coins.",
+      "normalized_text": "If a greedy attacker is able to assemble more CPU power than all the honest nodes, he would have to choose between using it to defraud people by stealing back his payments, or using it to generate new coins.",
+      "length": 207,
+      "item_ranges_present": true,
+      "tags": [
+        "multi_item_range"
+      ]
+    },
+    {
+      "sentence_id": "cp4s15",
+      "page": 4,
+      "candidate_kind": "body_sentence",
+      "text": "He ought to find it more profitable to play by the rules, such rules that favour him with more new coins than everyone else combined, than to undermine the system and the validity of his own wealth.",
+      "normalized_text": "He ought to find it more profitable to play by the rules, such rules that favour him with more new coins than everyone else combined, than to undermine the system and the validity of his own wealth.",
+      "length": 198,
+      "item_ranges_present": true,
+      "tags": [
+        "multi_item_range"
+      ]
+    },
+    {
+      "sentence_id": "cp4s16",
+      "page": 4,
+      "candidate_kind": "heading",
+      "text": "7.",
+      "normalized_text": "7.",
+      "length": 2,
+      "item_ranges_present": true,
+      "tags": [
+        "very_short",
+        "contains_numeric_result"
+      ]
+    },
+    {
+      "sentence_id": "cp4s17",
+      "page": 4,
+      "candidate_kind": "body_sentence",
+      "text": "Reclaiming Disk Space Once the latest transaction in a coin is buried under enough blocks, the spent transactions before it can be discarded to save disk space.",
+      "normalized_text": "Reclaiming Disk Space Once the latest transaction in a coin is buried under enough blocks, the spent transactions before it can be discarded to save disk space.",
+      "length": 160,
+      "item_ranges_present": true,
+      "tags": [
+        "multi_item_range"
+      ]
+    },
+    {
+      "sentence_id": "cp4s18",
+      "page": 4,
+      "candidate_kind": "body_sentence",
+      "text": "To facilitate this without breaking the block's hash, transactions are hashed in a Merkle Tree [7][2][5], with only the root included in the block's hash.",
+      "normalized_text": "To facilitate this without breaking the block's hash, transactions are hashed in a Merkle Tree [7][2][5], with only the root included in the block's hash.",
+      "length": 154,
+      "item_ranges_present": true,
+      "tags": [
+        "contains_numeric_result",
+        "multi_item_range"
+      ]
+    },
+    {
+      "sentence_id": "cp4s19",
+      "page": 4,
+      "candidate_kind": "body_sentence",
+      "text": "Old blocks can then be compacted by stubbing off branches of the tree.",
+      "normalized_text": "Old blocks can then be compacted by stubbing off branches of the tree.",
+      "length": 70,
+      "item_ranges_present": true,
+      "tags": []
+    },
+    {
+      "sentence_id": "cp4s20",
+      "page": 4,
+      "candidate_kind": "body_sentence",
+      "text": "The interior hashes do not need to be stored.",
+      "normalized_text": "The interior hashes do not need to be stored.",
+      "length": 45,
+      "item_ranges_present": true,
+      "tags": [
+        "multi_item_range"
+      ]
+    },
+    {
+      "sentence_id": "cp4s21",
+      "page": 4,
+      "candidate_kind": "body_sentence",
+      "text": "A block header with no transactions would be about 80 bytes.",
+      "normalized_text": "A block header with no transactions would be about 80 bytes.",
+      "length": 60,
+      "item_ranges_present": true,
+      "tags": [
+        "contains_numeric_result"
+      ]
+    },
+    {
+      "sentence_id": "cp4s22",
+      "page": 4,
+      "candidate_kind": "body_sentence",
+      "text": "If we suppose blocks are generated every 10 minutes, 80 bytes * 6 * 24 * 365 = 4.2MB per year.",
+      "normalized_text": "If we suppose blocks are generated every 10 minutes, 80 bytes * 6 * 24 * 365 = 4.2MB per year.",
+      "length": 94,
+      "item_ranges_present": true,
+      "tags": [
+        "contains_numeric_result",
+        "multi_item_range"
+      ]
+    },
+    {
+      "sentence_id": "cp4s23",
+      "page": 4,
+      "candidate_kind": "body_sentence",
+      "text": "With computer systems typically selling with 2GB of RAM as of 2008, and Moore's Law predicting current growth of 1.2GB per year, storage should not be a problem even if the block headers must be kept in memory.",
+      "normalized_text": "With computer systems typically selling with 2GB of RAM as of 2008, and Moore's Law predicting current growth of 1.2GB per year, storage should not be a problem even if the block headers must be kept in memory.",
+      "length": 210,
+      "item_ranges_present": true,
+      "tags": [
+        "contains_numeric_result",
+        "multi_item_range"
+      ]
+    },
+    {
+      "sentence_id": "cp4s24",
+      "page": 4,
+      "candidate_kind": "body_sentence",
+      "text": "4 Block Block Block Header (Block Hash) Prev Hash Nonce Hash01 Hash0 Hash1 Hash2 Hash3 Hash23 Root Hash Hash01 Hash2 Tx3 Hash23 Block Header (Block Hash) Root Hash Transactions Hashed in a Merkle Tree After Pruning Tx0-2 from the Block Prev Hash Nonce Hash3 Tx0 Tx1 Tx2 Tx3",
+      "normalized_text": "4 Block Block Block Header (Block Hash) Prev Hash Nonce Hash01 Hash0 Hash1 Hash2 Hash3 Hash23 Root Hash Hash01 Hash2 Tx3 Hash23 Block Header (Block Hash) Root Hash Transactions Hashed in a Merkle Tree After Pruning Tx0-2 from the Block Prev Hash Nonce Hash3 Tx0 Tx1 Tx2 Tx3",
+      "length": 273,
+      "item_ranges_present": true,
+      "tags": [
+        "contains_numeric_result",
+        "multi_item_range"
+      ]
+    },
+    {
+      "sentence_id": "cp5s1",
+      "page": 5,
+      "candidate_kind": "heading",
+      "text": "8.",
+      "normalized_text": "8.",
+      "length": 2,
+      "item_ranges_present": true,
+      "tags": [
+        "very_short",
+        "contains_numeric_result"
+      ]
+    },
+    {
+      "sentence_id": "cp5s2",
+      "page": 5,
+      "candidate_kind": "body_sentence",
+      "text": "Simplified Payment Verification It is possible to verify payments without running a full network node.",
+      "normalized_text": "Simplified Payment Verification It is possible to verify payments without running a full network node.",
+      "length": 102,
+      "item_ranges_present": true,
+      "tags": [
+        "multi_item_range"
+      ]
+    },
+    {
+      "sentence_id": "cp5s3",
+      "page": 5,
+      "candidate_kind": "body_sentence",
+      "text": "A user only needs to keep a copy of the block headers of the longest proof-of-work chain, which he can get by querying network nodes until he's convinced he has the longest chain, and obtain the Merkle branch linking the transaction to the block it's timestamped in.",
+      "normalized_text": "A user only needs to keep a copy of the block headers of the longest proof-of-work chain, which he can get by querying network nodes until he's convinced he has the longest chain, and obtain the Merkle branch linking the transaction to the block it's timestamped in.",
+      "length": 266,
+      "item_ranges_present": true,
+      "tags": [
+        "multi_item_range"
+      ]
+    },
+    {
+      "sentence_id": "cp5s4",
+      "page": 5,
+      "candidate_kind": "body_sentence",
+      "text": "He can't check the transaction for himself, but by linking it to a place in the chain, he can see that a network node has accepted it, and blocks added after it further confirm the network has accepted it.",
+      "normalized_text": "He can't check the transaction for himself, but by linking it to a place in the chain, he can see that a network node has accepted it, and blocks added after it further confirm the network has accepted it.",
+      "length": 205,
+      "item_ranges_present": true,
+      "tags": [
+        "multi_item_range"
+      ]
+    },
+    {
+      "sentence_id": "cp5s5",
+      "page": 5,
+      "candidate_kind": "body_sentence",
+      "text": "As such, the verification is reliable as long as honest nodes control the network, but is more vulnerable if the network is overpowered by an attacker.",
+      "normalized_text": "As such, the verification is reliable as long as honest nodes control the network, but is more vulnerable if the network is overpowered by an attacker.",
+      "length": 151,
+      "item_ranges_present": true,
+      "tags": [
+        "multi_item_range"
+      ]
+    },
+    {
+      "sentence_id": "cp5s6",
+      "page": 5,
+      "candidate_kind": "body_sentence",
+      "text": "While network nodes can verify transactions for themselves, the simplified method can be fooled by an attacker's fabricated transactions for as long as the attacker can continue to overpower the network.",
+      "normalized_text": "While network nodes can verify transactions for themselves, the simplified method can be fooled by an attacker's fabricated transactions for as long as the attacker can continue to overpower the network.",
+      "length": 203,
+      "item_ranges_present": true,
+      "tags": [
+        "multi_item_range"
+      ]
+    },
+    {
+      "sentence_id": "cp5s7",
+      "page": 5,
+      "candidate_kind": "body_sentence",
+      "text": "One strategy to protect against this would be to accept alerts from network nodes when they detect an invalid block, prompting the user's software to download the full block and alerted transactions to confirm the inconsistency.",
+      "normalized_text": "One strategy to protect against this would be to accept alerts from network nodes when they detect an invalid block, prompting the user's software to download the full block and alerted transactions to confirm the inconsistency.",
+      "length": 228,
+      "item_ranges_present": true,
+      "tags": [
+        "multi_item_range"
+      ]
+    },
+    {
+      "sentence_id": "cp5s8",
+      "page": 5,
+      "candidate_kind": "body_sentence",
+      "text": "Businesses that receive frequent payments will probably still want to run their own nodes for more independent security and quicker verification.",
+      "normalized_text": "Businesses that receive frequent payments will probably still want to run their own nodes for more independent security and quicker verification.",
+      "length": 145,
+      "item_ranges_present": true,
+      "tags": [
+        "multi_item_range"
+      ]
+    },
+    {
+      "sentence_id": "cp5s9",
+      "page": 5,
+      "candidate_kind": "heading",
+      "text": "9.",
+      "normalized_text": "9.",
+      "length": 2,
+      "item_ranges_present": true,
+      "tags": [
+        "very_short",
+        "contains_numeric_result"
+      ]
+    },
+    {
+      "sentence_id": "cp5s10",
+      "page": 5,
+      "candidate_kind": "body_sentence",
+      "text": "Combining and Splitting Value Although it would be possible to handle coins individually, it would be unwieldy to make a separate transaction for every cent in a transfer.",
+      "normalized_text": "Combining and Splitting Value Although it would be possible to handle coins individually, it would be unwieldy to make a separate transaction for every cent in a transfer.",
+      "length": 171,
+      "item_ranges_present": true,
+      "tags": [
+        "multi_item_range"
+      ]
+    },
+    {
+      "sentence_id": "cp5s11",
+      "page": 5,
+      "candidate_kind": "body_sentence",
+      "text": "To allow value to be split and combined, transactions contain multiple inputs and outputs.",
+      "normalized_text": "To allow value to be split and combined, transactions contain multiple inputs and outputs.",
+      "length": 90,
+      "item_ranges_present": true,
+      "tags": [
+        "multi_item_range"
+      ]
+    },
+    {
+      "sentence_id": "cp5s12",
+      "page": 5,
+      "candidate_kind": "body_sentence",
+      "text": "Normally there will be either a single input from a larger previous transaction or multiple inputs combining smaller amounts, and at most two outputs: one for the payment, and one returning the change, if any, back to the sender.",
+      "normalized_text": "Normally there will be either a single input from a larger previous transaction or multiple inputs combining smaller amounts, and at most two outputs: one for the payment, and one returning the change, if any, back to the sender.",
+      "length": 229,
+      "item_ranges_present": true,
+      "tags": [
+        "multi_item_range"
+      ]
+    },
+    {
+      "sentence_id": "cp5s13",
+      "page": 5,
+      "candidate_kind": "body_sentence",
+      "text": "It should be noted that fan-out, where a transaction depends on several transactions, and those transactions depend on many more, is not a problem here.",
+      "normalized_text": "It should be noted that fan-out, where a transaction depends on several transactions, and those transactions depend on many more, is not a problem here.",
+      "length": 152,
+      "item_ranges_present": true,
+      "tags": [
+        "multi_item_range"
+      ]
+    },
+    {
+      "sentence_id": "cp5s14",
+      "page": 5,
+      "candidate_kind": "body_sentence",
+      "text": "There is never the need to extract a complete standalone copy of a transaction's history.",
+      "normalized_text": "There is never the need to extract a complete standalone copy of a transaction's history.",
+      "length": 89,
+      "item_ranges_present": true,
+      "tags": [
+        "multi_item_range"
+      ]
+    },
+    {
+      "sentence_id": "cp5s15",
+      "page": 5,
+      "candidate_kind": "short_fragment",
+      "text": "5 Transaction In ...",
+      "normalized_text": "5 Transaction In ...",
+      "length": 20,
+      "item_ranges_present": true,
+      "tags": [
+        "very_short",
+        "contains_numeric_result",
+        "multi_item_range"
+      ]
+    },
+    {
+      "sentence_id": "cp5s16",
+      "page": 5,
+      "candidate_kind": "short_fragment",
+      "text": "In Out ...",
+      "normalized_text": "In Out ...",
+      "length": 10,
+      "item_ranges_present": true,
+      "tags": [
+        "very_short",
+        "multi_item_range"
+      ]
+    },
+    {
+      "sentence_id": "cp5s17",
+      "page": 5,
+      "candidate_kind": "body_sentence",
+      "text": "Hash01 Hash2 Hash3 Hash23 Block Header Merkle Root Prev Hash Nonce Block Header Merkle Root Prev Hash Nonce Block Header Merkle Root Prev Hash Nonce Merkle Branch for Tx3 Longest Proof-of-Work Chain Tx3",
+      "normalized_text": "Hash01 Hash2 Hash3 Hash23 Block Header Merkle Root Prev Hash Nonce Block Header Merkle Root Prev Hash Nonce Block Header Merkle Root Prev Hash Nonce Merkle Branch for Tx3 Longest Proof-of-Work Chain Tx3",
+      "length": 202,
+      "item_ranges_present": true,
+      "tags": [
+        "contains_numeric_result",
+        "multi_item_range"
+      ]
+    },
+    {
+      "sentence_id": "cp6s1",
+      "page": 6,
+      "candidate_kind": "heading",
+      "text": "10.",
+      "normalized_text": "10.",
+      "length": 3,
+      "item_ranges_present": true,
+      "tags": [
+        "very_short",
+        "contains_numeric_result"
+      ]
+    },
+    {
+      "sentence_id": "cp6s2",
+      "page": 6,
+      "candidate_kind": "body_sentence",
+      "text": "Privacy The traditional banking model achieves a level of privacy by limiting access to information to the parties involved and the trusted third party.",
+      "normalized_text": "Privacy The traditional banking model achieves a level of privacy by limiting access to information to the parties involved and the trusted third party.",
+      "length": 152,
+      "item_ranges_present": true,
+      "tags": [
+        "multi_item_range"
+      ]
+    },
+    {
+      "sentence_id": "cp6s3",
+      "page": 6,
+      "candidate_kind": "body_sentence",
+      "text": "The necessity to announce all transactions publicly precludes this method, but privacy can still be maintained by breaking the flow of information in another place: by keeping public keys anonymous.",
+      "normalized_text": "The necessity to announce all transactions publicly precludes this method, but privacy can still be maintained by breaking the flow of information in another place: by keeping public keys anonymous.",
+      "length": 198,
+      "item_ranges_present": true,
+      "tags": [
+        "multi_item_range"
+      ]
+    },
+    {
+      "sentence_id": "cp6s4",
+      "page": 6,
+      "candidate_kind": "body_sentence",
+      "text": "The public can see that someone is sending an amount to someone else, but without information linking the transaction to anyone.",
+      "normalized_text": "The public can see that someone is sending an amount to someone else, but without information linking the transaction to anyone.",
+      "length": 128,
+      "item_ranges_present": true,
+      "tags": [
+        "multi_item_range"
+      ]
+    },
+    {
+      "sentence_id": "cp6s5",
+      "page": 6,
+      "candidate_kind": "body_sentence",
+      "text": "This is similar to the level of information released by stock exchanges, where the time and size of individual trades, the \"tape\", is made public, but without telling who the parties were.",
+      "normalized_text": "This is similar to the level of information released by stock exchanges, where the time and size of individual trades, the \"tape\", is made public, but without telling who the parties were.",
+      "length": 188,
+      "item_ranges_present": true,
+      "tags": [
+        "multi_item_range"
+      ]
+    },
+    {
+      "sentence_id": "cp6s6",
+      "page": 6,
+      "candidate_kind": "body_sentence",
+      "text": "As an additional firewall, a new key pair should be used for each transaction to keep them from being linked to a common owner.",
+      "normalized_text": "As an additional firewall, a new key pair should be used for each transaction to keep them from being linked to a common owner.",
+      "length": 127,
+      "item_ranges_present": true,
+      "tags": [
+        "multi_item_range"
+      ]
+    },
+    {
+      "sentence_id": "cp6s7",
+      "page": 6,
+      "candidate_kind": "body_sentence",
+      "text": "Some linking is still unavoidable with multi-input transactions, which necessarily reveal that their inputs were owned by the same owner.",
+      "normalized_text": "Some linking is still unavoidable with multi-input transactions, which necessarily reveal that their inputs were owned by the same owner.",
+      "length": 137,
+      "item_ranges_present": true,
+      "tags": [
+        "multi_item_range"
+      ]
+    },
+    {
+      "sentence_id": "cp6s8",
+      "page": 6,
+      "candidate_kind": "body_sentence",
+      "text": "The risk is that if the owner of a key is revealed, linking could reveal other transactions that belonged to the same owner.",
+      "normalized_text": "The risk is that if the owner of a key is revealed, linking could reveal other transactions that belonged to the same owner.",
+      "length": 124,
+      "item_ranges_present": true,
+      "tags": [
+        "multi_item_range"
+      ]
+    },
+    {
+      "sentence_id": "cp6s9",
+      "page": 6,
+      "candidate_kind": "heading",
+      "text": "11.",
+      "normalized_text": "11.",
+      "length": 3,
+      "item_ranges_present": true,
+      "tags": [
+        "very_short",
+        "contains_numeric_result"
+      ]
+    },
+    {
+      "sentence_id": "cp6s10",
+      "page": 6,
+      "candidate_kind": "body_sentence",
+      "text": "Calculations We consider the scenario of an attacker trying to generate an alternate chain faster than the honest chain.",
+      "normalized_text": "Calculations We consider the scenario of an attacker trying to generate an alternate chain faster than the honest chain.",
+      "length": 120,
+      "item_ranges_present": true,
+      "tags": [
+        "multi_item_range"
+      ]
+    },
+    {
+      "sentence_id": "cp6s11",
+      "page": 6,
+      "candidate_kind": "body_sentence",
+      "text": "Even if this is accomplished, it does not throw the system open to arbitrary changes, such as creating value out of thin air or taking money that never belonged to the attacker.",
+      "normalized_text": "Even if this is accomplished, it does not throw the system open to arbitrary changes, such as creating value out of thin air or taking money that never belonged to the attacker.",
+      "length": 177,
+      "item_ranges_present": true,
+      "tags": [
+        "multi_item_range"
+      ]
+    },
+    {
+      "sentence_id": "cp6s12",
+      "page": 6,
+      "candidate_kind": "body_sentence",
+      "text": "Nodes are not going to accept an invalid transaction as payment, and honest nodes will never accept a block containing them.",
+      "normalized_text": "Nodes are not going to accept an invalid transaction as payment, and honest nodes will never accept a block containing them.",
+      "length": 124,
+      "item_ranges_present": true,
+      "tags": [
+        "multi_item_range"
+      ]
+    },
+    {
+      "sentence_id": "cp6s13",
+      "page": 6,
+      "candidate_kind": "body_sentence",
+      "text": "An attacker can only try to change one of his own transactions to take back money he recently spent.",
+      "normalized_text": "An attacker can only try to change one of his own transactions to take back money he recently spent.",
+      "length": 100,
+      "item_ranges_present": true,
+      "tags": [
+        "multi_item_range"
+      ]
+    },
+    {
+      "sentence_id": "cp6s14",
+      "page": 6,
+      "candidate_kind": "body_sentence",
+      "text": "The race between the honest chain and an attacker chain can be characterized as a Binomial Random Walk.",
+      "normalized_text": "The race between the honest chain and an attacker chain can be characterized as a Binomial Random Walk.",
+      "length": 103,
+      "item_ranges_present": true,
+      "tags": [
+        "multi_item_range"
+      ]
+    },
+    {
+      "sentence_id": "cp6s15",
+      "page": 6,
+      "candidate_kind": "body_sentence",
+      "text": "The success event is the honest chain being extended by one block, increasing its lead by +1, and the failure event is the attacker's chain being extended by one block, reducing the gap by -1.",
+      "normalized_text": "The success event is the honest chain being extended by one block, increasing its lead by +1, and the failure event is the attacker's chain being extended by one block, reducing the gap by -1.",
+      "length": 192,
+      "item_ranges_present": true,
+      "tags": [
+        "contains_numeric_result",
+        "multi_item_range"
+      ]
+    },
+    {
+      "sentence_id": "cp6s16",
+      "page": 6,
+      "candidate_kind": "body_sentence",
+      "text": "The probability of an attacker catching up from a given deficit is analogous to a Gambler's Ruin problem.",
+      "normalized_text": "The probability of an attacker catching up from a given deficit is analogous to a Gambler's Ruin problem.",
+      "length": 105,
+      "item_ranges_present": true,
+      "tags": [
+        "multi_item_range"
+      ]
+    },
+    {
+      "sentence_id": "cp6s17",
+      "page": 6,
+      "candidate_kind": "body_sentence",
+      "text": "Suppose a gambler with unlimited credit starts at a deficit and plays potentially an infinite number of trials to try to reach breakeven.",
+      "normalized_text": "Suppose a gambler with unlimited credit starts at a deficit and plays potentially an infinite number of trials to try to reach breakeven.",
+      "length": 137,
+      "item_ranges_present": true,
+      "tags": [
+        "multi_item_range"
+      ]
+    },
+    {
+      "sentence_id": "cp6s18",
+      "page": 6,
+      "candidate_kind": "body_sentence",
+      "text": "We can calculate the probability he ever reaches breakeven, or that an attacker ever catches up with the honest chain, as follows [8]: p = probability an honest node finds the next block q = probability the attacker finds the next block q z = probability the attacker will ever catch up from z blocks behind q z = { 1 if p ≤ q  q / p  z if p  q } 6 Identities Transactions Trusted Third Party Counterparty Public Identities Transactions Public New Privacy Model Traditional Privacy Model",
+      "normalized_text": "We can calculate the probability he ever reaches breakeven, or that an attacker ever catches up with the honest chain, as follows [8]: p = probability an honest node finds the next block q = probability the attacker finds the next block q z = probability the attacker will ever catch up from z blocks behind q z = { 1 if p ≤ q  q / p  z if p  q } 6 Identities Transactions Trusted Third Party Counterparty Public Identities Transactions Public New Privacy Model Traditional Privacy Model",
+      "length": 490,
+      "item_ranges_present": true,
+      "tags": [
+        "contains_numeric_result",
+        "multi_item_range"
+      ]
+    },
+    {
+      "sentence_id": "cp7s1",
+      "page": 7,
+      "candidate_kind": "body_sentence",
+      "text": "Given our assumption that p > q , the probability drops exponentially as the number of blocks the attacker has to catch up with increases.",
+      "normalized_text": "Given our assumption that p > q , the probability drops exponentially as the number of blocks the attacker has to catch up with increases.",
+      "length": 138,
+      "item_ranges_present": true,
+      "tags": [
+        "multi_item_range"
+      ]
+    },
+    {
+      "sentence_id": "cp7s2",
+      "page": 7,
+      "candidate_kind": "body_sentence",
+      "text": "With the odds against him, if he doesn't make a lucky lunge forward early on, his chances become vanishingly small as he falls further behind.",
+      "normalized_text": "With the odds against him, if he doesn't make a lucky lunge forward early on, his chances become vanishingly small as he falls further behind.",
+      "length": 142,
+      "item_ranges_present": true,
+      "tags": [
+        "multi_item_range"
+      ]
+    },
+    {
+      "sentence_id": "cp7s3",
+      "page": 7,
+      "candidate_kind": "body_sentence",
+      "text": "We now consider how long the recipient of a new transaction needs to wait before being sufficiently certain the sender can't change the transaction.",
+      "normalized_text": "We now consider how long the recipient of a new transaction needs to wait before being sufficiently certain the sender can't change the transaction.",
+      "length": 148,
+      "item_ranges_present": true,
+      "tags": [
+        "multi_item_range"
+      ]
+    },
+    {
+      "sentence_id": "cp7s4",
+      "page": 7,
+      "candidate_kind": "body_sentence",
+      "text": "We assume the sender is an attacker who wants to make the recipient believe he paid him for a while, then switch it to pay back to himself after some time has passed.",
+      "normalized_text": "We assume the sender is an attacker who wants to make the recipient believe he paid him for a while, then switch it to pay back to himself after some time has passed.",
+      "length": 166,
+      "item_ranges_present": true,
+      "tags": [
+        "multi_item_range"
+      ]
+    },
+    {
+      "sentence_id": "cp7s5",
+      "page": 7,
+      "candidate_kind": "body_sentence",
+      "text": "The receiver will be alerted when that happens, but the sender hopes it will be too late.",
+      "normalized_text": "The receiver will be alerted when that happens, but the sender hopes it will be too late.",
+      "length": 89,
+      "item_ranges_present": true,
+      "tags": [
+        "multi_item_range"
+      ]
+    },
+    {
+      "sentence_id": "cp7s6",
+      "page": 7,
+      "candidate_kind": "body_sentence",
+      "text": "The receiver generates a new key pair and gives the public key to the sender shortly before signing.",
+      "normalized_text": "The receiver generates a new key pair and gives the public key to the sender shortly before signing.",
+      "length": 100,
+      "item_ranges_present": true,
+      "tags": [
+        "multi_item_range"
+      ]
+    },
+    {
+      "sentence_id": "cp7s7",
+      "page": 7,
+      "candidate_kind": "body_sentence",
+      "text": "This prevents the sender from preparing a chain of blocks ahead of time by working on it continuously until he is lucky enough to get far enough ahead, then executing the transaction at that moment.",
+      "normalized_text": "This prevents the sender from preparing a chain of blocks ahead of time by working on it continuously until he is lucky enough to get far enough ahead, then executing the transaction at that moment.",
+      "length": 198,
+      "item_ranges_present": true,
+      "tags": [
+        "multi_item_range"
+      ]
+    },
+    {
+      "sentence_id": "cp7s8",
+      "page": 7,
+      "candidate_kind": "body_sentence",
+      "text": "Once the transaction is sent, the dishonest sender starts working in secret on a parallel chain containing an alternate version of his transaction.",
+      "normalized_text": "Once the transaction is sent, the dishonest sender starts working in secret on a parallel chain containing an alternate version of his transaction.",
+      "length": 147,
+      "item_ranges_present": true,
+      "tags": [
+        "multi_item_range"
+      ]
+    },
+    {
+      "sentence_id": "cp7s9",
+      "page": 7,
+      "candidate_kind": "body_sentence",
+      "text": "The recipient waits until the transaction has been added to a block and z blocks have been linked after it.",
+      "normalized_text": "The recipient waits until the transaction has been added to a block and z blocks have been linked after it.",
+      "length": 107,
+      "item_ranges_present": true,
+      "tags": [
+        "multi_item_range"
+      ]
+    },
+    {
+      "sentence_id": "cp7s10",
+      "page": 7,
+      "candidate_kind": "body_sentence",
+      "text": "He doesn't know the exact amount of progress the attacker has made, but assuming the honest blocks took the average expected time per block, the attacker's potential progress will be a Poisson distribution with expected value:  = z q p To get the probability the attacker could still catch up now, we multiply the Poisson density for each amount of progress he could have made by the probability he could catch up from that point: ∑ k = 0 ∞  k e −  k !",
+      "normalized_text": "He doesn't know the exact amount of progress the attacker has made, but assuming the honest blocks took the average expected time per block, the attacker's potential progress will be a Poisson distribution with expected value:  = z q p To get the probability the attacker could still catch up now, we multiply the Poisson density for each amount of progress he could have made by the probability he could catch up from that point: ∑ k = 0 ∞  k e −  k !",
+      "length": 455,
+      "item_ranges_present": true,
+      "tags": [
+        "contains_numeric_result",
+        "multi_item_range"
+      ]
+    },
+    {
+      "sentence_id": "cp7s11",
+      "page": 7,
+      "candidate_kind": "body_sentence",
+      "text": "⋅ {  q / p   z − k  if k ≤ z 1 if k  z } Rearranging to avoid summing the infinite tail of the distribution...",
+      "normalized_text": "⋅ {  q / p   z − k  if k ≤ z 1 if k  z } Rearranging to avoid summing the infinite tail of the distribution...",
+      "length": 115,
+      "item_ranges_present": true,
+      "tags": [
+        "contains_numeric_result",
+        "multi_item_range"
+      ]
+    },
+    {
+      "sentence_id": "cp7s12",
+      "page": 7,
+      "candidate_kind": "formula_or_table",
+      "text": "1 − ∑ k = 0 z  k e −  k !",
+      "normalized_text": "1 − ∑ k = 0 z  k e −  k !",
+      "length": 27,
+      "item_ranges_present": true,
+      "tags": [
+        "very_short",
+        "contains_numeric_result",
+        "multi_item_range"
+      ]
+    },
+    {
+      "sentence_id": "cp7s13",
+      "page": 7,
+      "candidate_kind": "body_sentence",
+      "text": " 1 −  q / p   z − k   Converting to C code...",
+      "normalized_text": " 1 −  q / p   z − k   Converting to C code...",
+      "length": 51,
+      "item_ranges_present": true,
+      "tags": [
+        "contains_numeric_result",
+        "multi_item_range"
+      ]
+    },
+    {
+      "sentence_id": "cp7s14",
+      "page": 7,
+      "candidate_kind": "body_sentence",
+      "text": "#include <math.h> double AttackerSuccessProbability(double q, int z) { double p = 1.0 - q; double lambda = z * (q / p); double sum = 1.0; int i, k; for (k = 0; k <= z; k++) { double poisson = exp(-lambda); for (i = 1; i <= k; i++) poisson *= lambda / i; sum -= poisson * (1 - pow(q / p, z - k)); } return sum; } 7",
+      "normalized_text": "#include <math.h> double AttackerSuccessProbability(double q, int z) { double p = 1.0 - q; double lambda = z * (q / p); double sum = 1.0; int i, k; for (k = 0; k <= z; k++) { double poisson = exp(-lambda); for (i = 1; i <= k; i++) poisson *= lambda / i; sum -= poisson * (1 - pow(q / p, z - k)); } return sum; } 7",
+      "length": 313,
+      "item_ranges_present": true,
+      "tags": [
+        "contains_numeric_result",
+        "multi_item_range"
+      ]
+    },
+    {
+      "sentence_id": "cp8s1",
+      "page": 8,
+      "candidate_kind": "body_sentence",
+      "text": "Running some results, we can see the probability drop off exponentially with z.",
+      "normalized_text": "Running some results, we can see the probability drop off exponentially with z.",
+      "length": 79,
+      "item_ranges_present": true,
+      "tags": []
+    },
+    {
+      "sentence_id": "cp8s2",
+      "page": 8,
+      "candidate_kind": "formula_or_table",
+      "text": "q=0.1 z=0 P=1.0000000 z=1 P=0.2045873 z=2 P=0.0509779 z=3 P=0.0131722 z=4 P=0.0034552 z=5 P=0.0009137 z=6 P=0.0002428 z=7 P=0.0000647 z=8 P=0.0000173 z=9 P=0.0000046 z=10 P=0.0000012 q=0.3 z=0 P=1.0000000 z=5 P=0.1773523 z=10 P=0.0416605 z=15 P=0.0101008 z=20 P=0.0024804 z=25 P=0.0006132 z=30 P=0.0001522 z=35 P=0.0000379 z=40 P=0.0000095 z=45 P=0.0000024 z=50 P=0.0000006 Solving for P less than 0.1%...",
+      "normalized_text": "q=0.1 z=0 P=1.0000000 z=1 P=0.2045873 z=2 P=0.0509779 z=3 P=0.0131722 z=4 P=0.0034552 z=5 P=0.0009137 z=6 P=0.0002428 z=7 P=0.0000647 z=8 P=0.0000173 z=9 P=0.0000046 z=10 P=0.0000012 q=0.3 z=0 P=1.0000000 z=5 P=0.1773523 z=10 P=0.0416605 z=15 P=0.0101008 z=20 P=0.0024804 z=25 P=0.0006132 z=30 P=0.0001522 z=35 P=0.0000379 z=40 P=0.0000095 z=45 P=0.0000024 z=50 P=0.0000006 Solving for P less than 0.1%...",
+      "length": 405,
+      "item_ranges_present": true,
+      "tags": [
+        "contains_numeric_result",
+        "multi_item_range"
+      ]
+    },
+    {
+      "sentence_id": "cp8s3",
+      "page": 8,
+      "candidate_kind": "formula_or_table",
+      "text": "P < 0.001 q=0.10 z=5 q=0.15 z=8 q=0.20 z=11 q=0.25 z=15 q=0.30 z=24 q=0.35 z=41 q=0.40 z=89 q=0.45 z=340 12.",
+      "normalized_text": "P < 0.001 q=0.10 z=5 q=0.15 z=8 q=0.20 z=11 q=0.25 z=15 q=0.30 z=24 q=0.35 z=41 q=0.40 z=89 q=0.45 z=340 12.",
+      "length": 108,
+      "item_ranges_present": true,
+      "tags": [
+        "contains_numeric_result",
+        "multi_item_range"
+      ]
+    },
+    {
+      "sentence_id": "cp8s4",
+      "page": 8,
+      "candidate_kind": "body_sentence",
+      "text": "Conclusion We have proposed a system for electronic transactions without relying on trust.",
+      "normalized_text": "Conclusion We have proposed a system for electronic transactions without relying on trust.",
+      "length": 90,
+      "item_ranges_present": true,
+      "tags": [
+        "multi_item_range"
+      ]
+    },
+    {
+      "sentence_id": "cp8s5",
+      "page": 8,
+      "candidate_kind": "body_sentence",
+      "text": "We started with the usual framework of coins made from digital signatures, which provides strong control of ownership, but is incomplete without a way to prevent double-spending.",
+      "normalized_text": "We started with the usual framework of coins made from digital signatures, which provides strong control of ownership, but is incomplete without a way to prevent double-spending.",
+      "length": 178,
+      "item_ranges_present": true,
+      "tags": [
+        "multi_item_range"
+      ]
+    },
+    {
+      "sentence_id": "cp8s6",
+      "page": 8,
+      "candidate_kind": "body_sentence",
+      "text": "To solve this, we proposed a peer-to-peer network using proof-of-work to record a public history of transactions that quickly becomes computationally impractical for an attacker to change if honest nodes control a majority of CPU power.",
+      "normalized_text": "To solve this, we proposed a peer-to-peer network using proof-of-work to record a public history of transactions that quickly becomes computationally impractical for an attacker to change if honest nodes control a majority of CPU power.",
+      "length": 236,
+      "item_ranges_present": true,
+      "tags": [
+        "multi_item_range"
+      ]
+    },
+    {
+      "sentence_id": "cp8s7",
+      "page": 8,
+      "candidate_kind": "body_sentence",
+      "text": "The network is robust in its unstructured simplicity.",
+      "normalized_text": "The network is robust in its unstructured simplicity.",
+      "length": 53,
+      "item_ranges_present": true,
+      "tags": []
+    },
+    {
+      "sentence_id": "cp8s8",
+      "page": 8,
+      "candidate_kind": "body_sentence",
+      "text": "Nodes work all at once with little coordination.",
+      "normalized_text": "Nodes work all at once with little coordination.",
+      "length": 48,
+      "item_ranges_present": true,
+      "tags": [
+        "multi_item_range"
+      ]
+    },
+    {
+      "sentence_id": "cp8s9",
+      "page": 8,
+      "candidate_kind": "body_sentence",
+      "text": "They do not need to be identified, since messages are not routed to any particular place and only need to be delivered on a best effort basis.",
+      "normalized_text": "They do not need to be identified, since messages are not routed to any particular place and only need to be delivered on a best effort basis.",
+      "length": 142,
+      "item_ranges_present": true,
+      "tags": [
+        "multi_item_range"
+      ]
+    },
+    {
+      "sentence_id": "cp8s10",
+      "page": 8,
+      "candidate_kind": "body_sentence",
+      "text": "Nodes can leave and rejoin the network at will, accepting the proof-of-work chain as proof of what happened while they were gone.",
+      "normalized_text": "Nodes can leave and rejoin the network at will, accepting the proof-of-work chain as proof of what happened while they were gone.",
+      "length": 129,
+      "item_ranges_present": true,
+      "tags": [
+        "multi_item_range"
+      ]
+    },
+    {
+      "sentence_id": "cp8s11",
+      "page": 8,
+      "candidate_kind": "body_sentence",
+      "text": "They vote with their CPU power, expressing their acceptance of valid blocks by working on extending them and rejecting invalid blocks by refusing to work on them.",
+      "normalized_text": "They vote with their CPU power, expressing their acceptance of valid blocks by working on extending them and rejecting invalid blocks by refusing to work on them.",
+      "length": 162,
+      "item_ranges_present": true,
+      "tags": [
+        "multi_item_range"
+      ]
+    },
+    {
+      "sentence_id": "cp8s12",
+      "page": 8,
+      "candidate_kind": "body_sentence",
+      "text": "Any needed rules and incentives can be enforced with this consensus mechanism.",
+      "normalized_text": "Any needed rules and incentives can be enforced with this consensus mechanism.",
+      "length": 78,
+      "item_ranges_present": true,
+      "tags": []
+    },
+    {
+      "sentence_id": "cp8s13",
+      "page": 8,
+      "candidate_kind": "short_fragment",
+      "text": "8",
+      "normalized_text": "8",
+      "length": 1,
+      "item_ranges_present": true,
+      "tags": [
+        "very_short",
+        "contains_numeric_result"
+      ]
+    },
+    {
+      "sentence_id": "cp9s1",
+      "page": 9,
+      "candidate_kind": "reference",
+      "text": "References [1] W.",
+      "normalized_text": "References [1] W.",
+      "length": 17,
+      "item_ranges_present": true,
+      "tags": [
+        "very_short",
+        "contains_numeric_result",
+        "multi_item_range"
+      ]
+    },
+    {
+      "sentence_id": "cp9s2",
+      "page": 9,
+      "candidate_kind": "reference",
+      "text": "Dai, \"b-money,\" http://www.weidai.com/bmoney.txt, 1998.",
+      "normalized_text": "Dai, \"b-money,\" http://www.weidai.com/bmoney.txt, 1998.",
+      "length": 55,
+      "item_ranges_present": true,
+      "tags": [
+        "contains_numeric_result"
+      ]
+    },
+    {
+      "sentence_id": "cp9s3",
+      "page": 9,
+      "candidate_kind": "reference",
+      "text": "[2] H.",
+      "normalized_text": "[2] H.",
+      "length": 6,
+      "item_ranges_present": true,
+      "tags": [
+        "very_short",
+        "contains_numeric_result",
+        "multi_item_range"
+      ]
+    },
+    {
+      "sentence_id": "cp9s4",
+      "page": 9,
+      "candidate_kind": "reference",
+      "text": "Massias, X.S.",
+      "normalized_text": "Massias, X.S.",
+      "length": 13,
+      "item_ranges_present": true,
+      "tags": [
+        "very_short"
+      ]
+    },
+    {
+      "sentence_id": "cp9s5",
+      "page": 9,
+      "candidate_kind": "reference",
+      "text": "Avila, and J.-J.",
+      "normalized_text": "Avila, and J.-J.",
+      "length": 16,
+      "item_ranges_present": true,
+      "tags": [
+        "very_short"
+      ]
+    },
+    {
+      "sentence_id": "cp9s6",
+      "page": 9,
+      "candidate_kind": "reference",
+      "text": "Quisquater, \"Design of a secure timestamping service with minimal trust requirements,\" In 20th Symposium on Information Theory in the Benelux , May 1999.",
+      "normalized_text": "Quisquater, \"Design of a secure timestamping service with minimal trust requirements,\" In 20th Symposium on Information Theory in the Benelux , May 1999.",
+      "length": 153,
+      "item_ranges_present": true,
+      "tags": [
+        "contains_numeric_result",
+        "multi_item_range"
+      ]
+    },
+    {
+      "sentence_id": "cp9s7",
+      "page": 9,
+      "candidate_kind": "reference",
+      "text": "[3] S.",
+      "normalized_text": "[3] S.",
+      "length": 6,
+      "item_ranges_present": true,
+      "tags": [
+        "very_short",
+        "contains_numeric_result",
+        "multi_item_range"
+      ]
+    },
+    {
+      "sentence_id": "cp9s8",
+      "page": 9,
+      "candidate_kind": "reference",
+      "text": "Haber, W.S.",
+      "normalized_text": "Haber, W.S.",
+      "length": 11,
+      "item_ranges_present": true,
+      "tags": [
+        "very_short"
+      ]
+    },
+    {
+      "sentence_id": "cp9s9",
+      "page": 9,
+      "candidate_kind": "reference",
+      "text": "Stornetta, \"How to time-stamp a digital document,\" In Journal of Cryptology , vol 3, no 2, pages 99-111, 1991.",
+      "normalized_text": "Stornetta, \"How to time-stamp a digital document,\" In Journal of Cryptology , vol 3, no 2, pages 99-111, 1991.",
+      "length": 110,
+      "item_ranges_present": true,
+      "tags": [
+        "contains_numeric_result",
+        "multi_item_range"
+      ]
+    },
+    {
+      "sentence_id": "cp9s10",
+      "page": 9,
+      "candidate_kind": "reference",
+      "text": "[4] D.",
+      "normalized_text": "[4] D.",
+      "length": 6,
+      "item_ranges_present": true,
+      "tags": [
+        "very_short",
+        "contains_numeric_result",
+        "multi_item_range"
+      ]
+    },
+    {
+      "sentence_id": "cp9s11",
+      "page": 9,
+      "candidate_kind": "reference",
+      "text": "Bayer, S.",
+      "normalized_text": "Bayer, S.",
+      "length": 9,
+      "item_ranges_present": true,
+      "tags": [
+        "very_short"
+      ]
+    },
+    {
+      "sentence_id": "cp9s12",
+      "page": 9,
+      "candidate_kind": "reference",
+      "text": "Haber, W.S.",
+      "normalized_text": "Haber, W.S.",
+      "length": 11,
+      "item_ranges_present": true,
+      "tags": [
+        "very_short"
+      ]
+    },
+    {
+      "sentence_id": "cp9s13",
+      "page": 9,
+      "candidate_kind": "reference",
+      "text": "Stornetta, \"Improving the efficiency and reliability of digital time-stamping,\" In Sequences II: Methods in Communication, Security and Computer Science , pages 329-334, 1993.",
+      "normalized_text": "Stornetta, \"Improving the efficiency and reliability of digital time-stamping,\" In Sequences II: Methods in Communication, Security and Computer Science , pages 329-334, 1993.",
+      "length": 175,
+      "item_ranges_present": true,
+      "tags": [
+        "contains_numeric_result",
+        "multi_item_range"
+      ]
+    },
+    {
+      "sentence_id": "cp9s14",
+      "page": 9,
+      "candidate_kind": "reference",
+      "text": "[5] S.",
+      "normalized_text": "[5] S.",
+      "length": 6,
+      "item_ranges_present": true,
+      "tags": [
+        "very_short",
+        "contains_numeric_result",
+        "multi_item_range"
+      ]
+    },
+    {
+      "sentence_id": "cp9s15",
+      "page": 9,
+      "candidate_kind": "reference",
+      "text": "Haber, W.S.",
+      "normalized_text": "Haber, W.S.",
+      "length": 11,
+      "item_ranges_present": true,
+      "tags": [
+        "very_short"
+      ]
+    },
+    {
+      "sentence_id": "cp9s16",
+      "page": 9,
+      "candidate_kind": "reference",
+      "text": "Stornetta, \"Secure names for bit-strings,\" In Proceedings of the 4th ACM Conference on Computer and Communications Security , pages 28-35, April 1997.",
+      "normalized_text": "Stornetta, \"Secure names for bit-strings,\" In Proceedings of the 4th ACM Conference on Computer and Communications Security , pages 28-35, April 1997.",
+      "length": 150,
+      "item_ranges_present": true,
+      "tags": [
+        "contains_numeric_result",
+        "multi_item_range"
+      ]
+    },
+    {
+      "sentence_id": "cp9s17",
+      "page": 9,
+      "candidate_kind": "reference",
+      "text": "[6] A.",
+      "normalized_text": "[6] A.",
+      "length": 6,
+      "item_ranges_present": true,
+      "tags": [
+        "very_short",
+        "contains_numeric_result",
+        "multi_item_range"
+      ]
+    },
+    {
+      "sentence_id": "cp9s18",
+      "page": 9,
+      "candidate_kind": "reference",
+      "text": "Back, \"Hashcash - a denial of service counter-measure,\" http://www.hashcash.org/papers/hashcash.pdf, 2002.",
+      "normalized_text": "Back, \"Hashcash - a denial of service counter-measure,\" http://www.hashcash.org/papers/hashcash.pdf, 2002.",
+      "length": 106,
+      "item_ranges_present": true,
+      "tags": [
+        "contains_numeric_result",
+        "multi_item_range"
+      ]
+    },
+    {
+      "sentence_id": "cp9s19",
+      "page": 9,
+      "candidate_kind": "reference",
+      "text": "[7] R.C.",
+      "normalized_text": "[7] R.C.",
+      "length": 8,
+      "item_ranges_present": true,
+      "tags": [
+        "very_short",
+        "contains_numeric_result",
+        "multi_item_range"
+      ]
+    },
+    {
+      "sentence_id": "cp9s20",
+      "page": 9,
+      "candidate_kind": "reference",
+      "text": "Merkle, \"Protocols for public key cryptosystems,\" In Proc.",
+      "normalized_text": "Merkle, \"Protocols for public key cryptosystems,\" In Proc.",
+      "length": 58,
+      "item_ranges_present": true,
+      "tags": [
+        "multi_item_range"
+      ]
+    },
+    {
+      "sentence_id": "cp9s21",
+      "page": 9,
+      "candidate_kind": "reference",
+      "text": "1980 Symposium on Security and Privacy , IEEE Computer Society, pages 122-133, April 1980.",
+      "normalized_text": "1980 Symposium on Security and Privacy , IEEE Computer Society, pages 122-133, April 1980.",
+      "length": 90,
+      "item_ranges_present": true,
+      "tags": [
+        "contains_numeric_result",
+        "multi_item_range"
+      ]
+    },
+    {
+      "sentence_id": "cp9s22",
+      "page": 9,
+      "candidate_kind": "reference",
+      "text": "[8] W.",
+      "normalized_text": "[8] W.",
+      "length": 6,
+      "item_ranges_present": true,
+      "tags": [
+        "very_short",
+        "contains_numeric_result",
+        "multi_item_range"
+      ]
+    },
+    {
+      "sentence_id": "cp9s23",
+      "page": 9,
+      "candidate_kind": "reference",
+      "text": "Feller, \"An introduction to probability theory and its applications,\" 1957.",
+      "normalized_text": "Feller, \"An introduction to probability theory and its applications,\" 1957.",
+      "length": 75,
+      "item_ranges_present": true,
+      "tags": [
+        "contains_numeric_result"
+      ]
+    },
+    {
+      "sentence_id": "cp9s24",
+      "page": 9,
+      "candidate_kind": "reference",
+      "text": "9",
+      "normalized_text": "9",
+      "length": 1,
+      "item_ranges_present": true,
+      "tags": [
+        "very_short",
+        "contains_numeric_result"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "labels": [
+    { "sentence_id": "cp1s2", "expected_priority": "bridge", "expected_directive": "callout", "reason": "A beginner needs explanatory context for vector retrieval." },
+    { "sentence_id": "cp1s3", "expected_priority": "bridge", "expected_directive": "callout", "reason": "The basic RAG pipeline is useful bridge material for this reader." },
+    { "sentence_id": "cp1s4", "expected_priority": "bridge", "expected_directive": "callout", "reason": "Freshness budgets need conceptual framing before the result." },
+    { "sentence_id": "cp1s5", "expected_priority": "delta", "expected_directive": "highlight", "reason": "The quantified stale-answer reduction remains a clear delta." },
+    { "sentence_id": "cp2s2", "expected_priority": "delta", "expected_directive": "highlight", "reason": "The quantified write-amplification result is a clear delta." },
+    { "sentence_id": "cp2s3", "expected_priority": "bridge", "expected_directive": "callout", "reason": "Monitoring and selective refresh need explanatory guidance." },
+    { "sentence_id": "cp2s4", "expected_priority": "bridge", "expected_directive": "callout", "reason": "A beginner may still benefit from operational context." },
+    { "sentence_id": "cp2s5", "expected_priority": "bridge", "expected_directive": "callout", "reason": "The beginner baseline does not explicitly exclude commercial context." }
+  ]
+}

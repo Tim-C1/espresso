@@ -1,0 +1,10 @@
+{
+  "reader_profile": "A beginner retrieval engineer who needs explanatory guidance for unfamiliar system concepts.",
+  "known_concepts": [],
+  "familiar_claims": [],
+  "interests": [
+    "stale-answer errors",
+    "write amplification"
+  ],
+  "explicit_not_interested_topics": []
+}
